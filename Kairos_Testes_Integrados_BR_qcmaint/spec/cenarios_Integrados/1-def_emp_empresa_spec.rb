@@ -1,13 +1,23 @@
 describe 'empresa', :empresa do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
     expect(page.title).to eql 'kairos'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
-    visit '/admin/Empresas'
-    visit '/admin/Empresas/Create'
+    # Acessando a empresa pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 5
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuEmpresas"]').click
+    find('label[class="pointer"]').click
+    
+
+    # Acessar a empresa direto pela URL
+    # visit '/admin/Empresas'
+    # visit '/admin/Empresas/Create'
   end
 
   it 'CT001 Inserir uma nova empresa', :ct001_empresa do

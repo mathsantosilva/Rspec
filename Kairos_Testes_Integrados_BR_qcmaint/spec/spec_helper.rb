@@ -17,7 +17,12 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:example) do
-    page.current_window.resize_to(1360, 768)
+    page.current_window.maximize
+    @login = 'teste75624@dimep.com.br'
+    @senha = '1'
+    @cnpj = ''
+    @nif = ''
+    @rfc = ''
   end
 
   Capybara.configure do |config|
