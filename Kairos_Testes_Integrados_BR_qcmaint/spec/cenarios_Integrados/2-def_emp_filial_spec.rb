@@ -2,19 +2,25 @@ describe 'filial', :filial do
   before(:each) do
     visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/Filiais'
-    visit '/admin/Filiais/Create'
+    # Acessando o cadastro da empresa filial pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuFiliais"]').click
+    find('label[class="pointer"]').click
+
   end
 
   it 'CT002 Inserir uma nova filial', :ct002_filial do
     fill_in 'Filial_Codigo', with: '1125'
     fill_in 'Filial_Telefone', with: '999999999'
-    fill_in 'Filial_Descricao', with: 'asdgc'
-    fill_in 'Filial_CnpjCpf', with: '17580580000136'
+    fill_in 'Filial_Descricao', with: 'Nova filial'
+    fill_in 'Filial_CnpjCpf', with: @cnpj_cpf_filial
     fill_in 'Filial_Endereco', with: 'rua abcd'
     fill_in 'Filial_Cidade', with: 'abcd'
     fill_in 'Filial_Bairro', with: 'abcd'
