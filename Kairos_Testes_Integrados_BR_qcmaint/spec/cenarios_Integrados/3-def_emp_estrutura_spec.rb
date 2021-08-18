@@ -2,15 +2,22 @@ describe 'estrutura', :estrutura do
   before(:each) do
     visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
-    visit '/admin/Estrutura'
+
+    # Acessando o cadastro estrutura organizacional pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuEstrutura"]').click
+
   end
 
   it 'CT003 Inserir uma nova estrutura organizacional', :ct003_estrutura do
-    fill_in 'ModelEstruturaOrganizacional_Descricao', with: 'Estrutura B'
-    fill_in 'ModelEstruturaOrganizacional_Codigo', with: '1002'
+    fill_in 'ModelEstruturaOrganizacional_Descricao', with: 'Estrutura Nova'
+    fill_in 'ModelEstruturaOrganizacional_Codigo', with: '1001'
 
     drop = find('.DivDescricaoEstrutura', text: 'Principal')
     drop.click
