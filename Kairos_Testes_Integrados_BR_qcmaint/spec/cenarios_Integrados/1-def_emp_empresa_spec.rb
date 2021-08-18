@@ -9,7 +9,7 @@ describe 'empresa', :empresa do
     # Acessando a empresa pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
-    sleep 5
+    sleep 3
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuEmpresas"]').click
     find('label[class="pointer"]').click
@@ -25,8 +25,8 @@ describe 'empresa', :empresa do
     fill_in 'Empresa_CEI', with: '233257875388'
     fill_in 'Empresa_Telefone', with: '999999999'
     find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: 'oy$%*pfi()<>,.'
-    fill_in 'Empresa_CnpjCpf', with: '36662573000128'
+    fill_in 'Empresa_RazaoSocial', with: 'Empresa Nova'
+    fill_in 'Empresa_CnpjCpf', with: @cnpj_cpf
     select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
     fill_in 'Empresa_Endereco', with: 'rua abcd'
     fill_in 'Empresa_Bairro', with: 'abcd'
