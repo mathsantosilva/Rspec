@@ -12,7 +12,7 @@ describe 'grupos', :grupos do
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
     
-    # Acessando o cadastro estrutura organizacional pela navegação de telas
+    # Acessando o cadastro grupos pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
     sleep 3

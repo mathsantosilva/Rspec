@@ -1,12 +1,24 @@
 describe 'Cargos', :cargos do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    sleep 2
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2    
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
     
-    visit '/admin/Cargos'
+    # Acessando o cadastro cargos pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuCargos"]').click
+
   end
 
   it 'CT005 Inserir um novo cargo', :ct005_cargo do
