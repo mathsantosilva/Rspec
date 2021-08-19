@@ -1,13 +1,28 @@
 describe 'justificativas', :justificativas do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    sleep 2
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/Justificativas'
-    visit '/admin/Justificativas/Create'
+    # Acessando o cadastro justificativas pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuJustificativas"]').click
+
+    # visit '/admin/Justificativas/Create'
+    drop = find('label[class="pointer"]', text: 'Nova Justificativa').click
+    
+
   end
 
   it 'CT006 Inserir uma nova justificatica', :ct006_justificativas do
