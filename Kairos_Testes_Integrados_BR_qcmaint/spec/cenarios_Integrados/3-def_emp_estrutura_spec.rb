@@ -1,15 +1,21 @@
 describe 'estrutura', :estrutura do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    sleep 2
+
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2
 
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
-
+      
     # Acessando o cadastro estrutura organizacional pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
     sleep 3
+    
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuEstrutura"]').click
 
@@ -28,3 +34,6 @@ describe 'estrutura', :estrutura do
     expect(find('form[id=FormEstruturas]')).to have_content 'A Estrutura Organizacional foi criada com sucesso'
   end
 end
+
+
+sleep 8
