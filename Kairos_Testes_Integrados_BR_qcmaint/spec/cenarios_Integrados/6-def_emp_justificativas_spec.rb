@@ -19,8 +19,8 @@ describe 'justificativas', :justificativas do
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuJustificativas"]').click
 
-    # visit '/admin/Justificativas/Create'
-    drop = find('label[class="pointer"]', text: 'Nova Justificativa').click
+    #Abrir criação de nova justificativa
+    find('label[class="pointer"]', text: 'Nova Justificativa').click
     
 
   end
