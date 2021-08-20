@@ -28,7 +28,7 @@ RSpec.configure do |config|
 
   Capybara.configure do |config|
     config.default_driver = :selenium_chrome
-    config.default_max_wait_time = 85
+    config.default_max_wait_time = 25
     config.app_host = 'http://qcmaint.dimepkairos.com.br/'
   end
 
