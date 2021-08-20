@@ -2,6 +2,10 @@ describe 'funcoes do relógio', :funcoes_relogio do
   before(:each) do
     visit '/'
 
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
@@ -12,6 +16,7 @@ describe 'funcoes do relógio', :funcoes_relogio do
     sleep 3
     find('div[class="pointer DropDownHeaderElement"]', text: 'Relógios').click
     find('div[id="MenuFuncaoRelogio"]').click
+    
     #Abrir criação de nova Função de relógio
     find('label[class="pointer"]', text: 'Adicionar').click
  
