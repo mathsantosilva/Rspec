@@ -17,7 +17,7 @@ describe 'eventos', :eventos do
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuEventos"]').click
    
-    #Abrir criação de nova justificativa
+    #Abrir criação de novo evento
     find('label[class="pointer"]', text: 'Novo Evento').click
     
   end
