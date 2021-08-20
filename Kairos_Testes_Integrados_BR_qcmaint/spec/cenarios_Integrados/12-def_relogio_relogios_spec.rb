@@ -1,13 +1,25 @@
 describe 'relógios', :relogios do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/Relogios'
-    visit '/admin/Relogios/Edit'
+    # Acessando o cadastro de Relógio pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Relógios').click
+    find('div[id="MenuRelogios"]').click
+    
+    #Abrir criação de novo Relógio
+    find('label[class="pointer"]', text: 'Adicionar').click
+
   end
 
   it 'CT012 Inserir novos campos nas configuracoes relogio ', :ct012_relogios do

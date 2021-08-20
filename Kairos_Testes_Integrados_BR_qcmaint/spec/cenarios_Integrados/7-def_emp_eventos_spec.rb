@@ -1,13 +1,25 @@
 describe 'eventos', :eventos do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/Eventos'
-    visit '/admin/Eventos/Create'
+    # Acessando o cadastro eventos pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuEventos"]').click
+   
+    #Abrir criação de novo evento
+    find('label[class="pointer"]', text: 'Novo Evento').click
+    
   end
 
   it 'CT007 Inserir um novo evento', :ct007_eventos do

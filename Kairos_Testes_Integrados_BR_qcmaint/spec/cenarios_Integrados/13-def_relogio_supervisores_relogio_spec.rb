@@ -1,13 +1,25 @@
 describe 'supervisores de relogio', :supervisor_relogio do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/SupervisorRelogio'
-    visit '/admin/SupervisorRelogio/Add'
+    # Acessando o cadastro de Supervisor de Relógio pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Relógios').click
+    find('div[id="MenuSupervisorRelogios"]').click
+    
+    #Abrir criação de novo Supervisor de Relógio
+    find('label[class="pointer"]', text: 'Novo Supervisor de Relógio').click
+
   end
 
   it 'CT013 Inserir novos campos supervisor relogio', :ct013_supervisor do

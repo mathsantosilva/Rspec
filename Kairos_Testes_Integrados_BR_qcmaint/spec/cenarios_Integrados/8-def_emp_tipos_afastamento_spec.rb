@@ -1,13 +1,25 @@
 describe 'tipos de afastamento', :tipos_afastamento do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/TiposAfastamento'
-    visit '/admin/TiposAfastamento/Create'
+    # Acessando o cadastro de tipo de afastamento pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuTiposAfastamento"]').click
+   
+    #Abrir criação de novo tipo de afastamento
+    find('label[class="pointer"]', text: 'Novo Tipo de Afastamento').click
+  
   end
 
   it 'CT008 Inserir um novo tipo de afastamento', :ct008_afastamento do
