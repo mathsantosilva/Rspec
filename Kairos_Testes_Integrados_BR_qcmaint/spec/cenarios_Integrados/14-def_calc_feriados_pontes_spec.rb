@@ -1,12 +1,24 @@
 describe 'feriados', :feriados_pontes do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
     
-    visit '/admin/FeriadosPontes'
+    # Acessando o cadastro de Feriado pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 2
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Cálculo').click
+
+    #Fechar janela de ajuda
+    sleep 2
+    find('div[aria-label= "Fechar diálogo"]').click
   end
 
   it 'CT014 Inserir os campos da descrição do calculo', :ct014_calculo_descricao do
