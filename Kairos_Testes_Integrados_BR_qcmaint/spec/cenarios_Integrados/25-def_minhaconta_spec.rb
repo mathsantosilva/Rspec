@@ -1,6 +1,7 @@
 describe 'empresa', :MinhaConta do
     before(:each) do
       visit '/'
+      @tecla = %i[enter]
       expect(page.title).to eql 'kairos'
   
       fill_in 'LogOnModel_UserName', with: @login
@@ -22,8 +23,9 @@ describe 'empresa', :MinhaConta do
       fill_in 'EmailFinanceiro', with: 'teste@financeiro.com'
       fill_in 'TelefoneFinanceiro', with: '12345678911'
       fill_in 'Cep', with: '12345678'
-      sleep 1
       select('SP', from: 'ufselecionado').select_option
+      sleep 2
+      fill_in 'Address', with: ''
       sleep 2
       fill_in 'Address', with: 'Rua nossa mesmo logo ali'
       fill_in 'District', with: 'Bairro das novas'
@@ -35,5 +37,30 @@ describe 'empresa', :MinhaConta do
   
       expect(find('div[class=field-summary-success]')).to have_content 'Alterado com sucesso!'
       sleep 2
-     end  
+     end 
+     
+     #CEP valido - Preenche automaticamente os campos UF, endereço, bairro e cidade
+    it 'CT0026 cadastrar informações no Minha Conta', :ct0026_MinhaConta2 do
+      fill_in 'EmailRH', with: 'teste@rh.com'
+      fill_in 'TelefoneRH', with: '12345678910'
+      fill_in 'EmailFinanceiro', with: 'teste@financeiro.com'
+      fill_in 'TelefoneFinanceiro', with: '12345678911'
+      fill_in 'Cep', with: '06050330'
+      sleep 1
+      @tecla.each do |t|
+      find('input[id="Cep"]').send_keys t
+      end
+      sleep 1
+      # fill_in 'Address', with: ''
+      # fill_in 'District', with: ''
+      select('Brasil', from: 'Pais').select_option
+      sleep 1
+
+      drop = find("input[type=submit][value='Salvar']", match: :first)
+      drop.click
+
+      expect(find('div[class=field-summary-success]')).to have_content 'Alterado com sucesso!'
+      sleep 2
+     end
+
     end
