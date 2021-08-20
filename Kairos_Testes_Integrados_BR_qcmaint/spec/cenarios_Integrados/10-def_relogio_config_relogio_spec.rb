@@ -1,13 +1,23 @@
 describe 'configuração', :config_relogio do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/ConfiguracaoRelogio'
-    visit '/admin/ConfiguracaoRelogio/Create'
+    # Acessando o cadastro de Configuração de relógio pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Relógios').click
+   
+    #Abrir criação de nova Configuração de relógio
+    find('label[class="pointer"]', text: 'Adicionar').click
+ 
   end
 
   it 'CT010 Inserir uma nova config de relogio', :ct010_relogio do

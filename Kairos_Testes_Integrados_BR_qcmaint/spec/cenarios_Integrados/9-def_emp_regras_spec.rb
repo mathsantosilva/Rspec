@@ -19,7 +19,7 @@ describe 'regras', :regras do
    
     #Abrir criação de nova Regra de aprovação
     find('label[class="pointer"]', text: 'Nova Regra').click
-    sleep 6
+ 
   end
 
   it 'CT009 Inserir uma nova regra', :ct009_regras do

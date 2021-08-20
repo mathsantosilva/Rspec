@@ -19,7 +19,7 @@ describe 'tipos de afastamento', :tipos_afastamento do
    
     #Abrir criação de novo tipo de afastamento
     find('label[class="pointer"]', text: 'Novo Tipo de Afastamento').click
-    sleep 6
+  
   end
 
   it 'CT008 Inserir um novo tipo de afastamento', :ct008_afastamento do
