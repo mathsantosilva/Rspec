@@ -1,13 +1,25 @@
 describe 'regras', :regras do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2 
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/RegrasAprovacao'
-    visit '/admin/RegrasAprovacao/Create'
+    # Acessando o cadastro de Regra de aprovação pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 3
+
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
+    find('div[id="MenuRegrasAprovacao"]').click
+   
+    #Abrir criação de nova Regra de aprovação
+    find('label[class="pointer"]', text: 'Nova Regra').click
+    sleep 6
   end
 
   it 'CT009 Inserir uma nova regra', :ct009_regras do
