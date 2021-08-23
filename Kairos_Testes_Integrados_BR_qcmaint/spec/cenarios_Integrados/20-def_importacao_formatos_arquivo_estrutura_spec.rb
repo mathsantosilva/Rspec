@@ -10,7 +10,7 @@ describe 'importacao estrutura', :importacao_estrutura do
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    # Acessando o cadastro de Formato de estrutura pela navegação de telas
+    # Acessando o cadastro de Formato de folha de pagamento pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
     sleep 2
