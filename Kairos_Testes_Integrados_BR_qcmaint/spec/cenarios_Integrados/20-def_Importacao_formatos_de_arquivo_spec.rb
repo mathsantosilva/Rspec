@@ -13,7 +13,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         
     end
  
-    it 'Estruturas', :formato_estruturas_br do
+    it 'Todos os cadastros', :cadastrando_todos_formatos do
+        #Estruturas
+        puts 'Criando Estruturas'
         find('label[class="pointer"]').click
         find('input[name="FormatoArquivoColetaApontamentos.Codigo"]').set '10'
         find('input[id="FormatoArquivoColetaApontamentos_Descricao"]').set 'Teste - Formato Estruturas'
@@ -25,9 +27,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de estruturas foi adicionado com sucesso'
-    end
 
-    it 'Cargos', :formato_cargos_br do
+        #Cargos
+        puts 'Criando Cargos'
         find('span[id="TabCargo"]').click
         find('label[class="pointer"]').click
         find('input[id="FormatoArquivoColetaApontamentos_Codigo"]').set '10'
@@ -40,9 +42,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de cargos foi adicionado com sucesso'
-    end
 
-    it 'Pessoas - Inclusão/alteração', :formato_pessoas_inclusao_alteracao_br do
+        #inclusão de pessoas
+        puts 'Criando inclusão de pessoas'
         find('span[id="TabFuncionarios"]').click
         find('label[class="pointer"]').click
         find('input[id="FormatoArquivoColetaApontamentos_Codigo"]').set '10'
@@ -65,9 +67,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de pessoas foi adicionado com sucesso'
-    end
-
-    it 'Cadastro formato de arquivo Pessoas - Desligamentos', :formato_pessoas_desligamentos_br do
+ 
+        #Desligamento de pessoas
+        puts 'Criando Desligamento de pessoas'
         find('span[id="TabFuncionarios"]').click
         find('span[id="TabDesligamento"]').click
         find('label[class="pointer"]').click
@@ -85,9 +87,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de desligamentos foi adicionado com sucesso'
-    end
 
-    it 'Cadastro formato de arquivo Pessoas - Ferias', :formato_pessoas_ferias_br do
+        #Ferias pessoas
+        puts 'Criando Ferias pessoas'
         find('span[id="TabFuncionarios"]').click
         find('span[id="TabFerias"]').click
         find('label[class="pointer"]').click
@@ -109,9 +111,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'Formato de arquivo de importação de férias editado com sucesso'
-     end
 
-     it 'Cadastro formato de arquivo Pessoas - Afastamento', :formato_pessoas_afastamento_br do
+        #Afastamento pessoas
+        puts 'Criando Afastamento pessoas'
         find('span[id="TabFuncionarios"]').click
         find('span[id="TabAfastamento"]').click
         find('label[class="pointer"]').click
@@ -131,9 +133,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de afastamentos foi adicionado com sucesso'
-     end
 
-     it 'Cadastro formato de arquivo Coleta de Marcações', :formato_marcacoes_br do
+        #Coleta de marcações 
+        puts 'Criando Coleta de marcações'
         find('span[id="TabColetaApontamentos"]').click
         find('label[class="pointer"]').click
         find('input[id="FormatoArquivoColetaApontamentos_Codigo"]').set '10'
@@ -158,9 +160,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de Importação de Marcações foi adicionado com sucesso'
-     end
 
-     it 'Cadastro formato de arquivo Escalas - Folgas', :formato_escalas_folgas_br do
+        #Escala de Folga
+        puts 'Criando Escala de Folga'
         find('span[id="TabColetaEscalas"]').click
         find('label[class="pointer"]').click
         find('input[id="FormatoArquivoColetaApontamentos_Codigo"]').set '10'
@@ -175,9 +177,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de escalas de folgas foi adicionado com sucesso'
-     end
 
-     it 'Cadastro formato de arquivo Escalas - Horarios', :formato_escalas_horarios_br do
+        #Escala de Horario
+        puts 'Criando Escala de Horario'
         find('span[id="TabColetaEscalas"]').click
         find('span[id="TabEscalasHorarios"]').click
         find('label[class="pointer"]').click
@@ -195,9 +197,9 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de escalas de horários foi adicionado com sucesso'
-     end
 
-     it 'Cadastro formato de arquivo Usuarios', :formato_usuarios_br do
+        #Usuarios
+        puts 'Criando Usuarios'
         find('span[id="TabUsuarios"]').click
         find('label[class="pointer"]').click
         find('input[id="FormatoArquivoColetaApontamentos_Codigo"]').set '10'
@@ -220,6 +222,152 @@ describe 'Cadastro de formato de arquivo', :formatos_br do
         drop.click
         msg = find('div[class="validation-summary-ok"]')
         expect(msg).to have_content 'O Formato de arquivo de importação de usuários foi adicionado com sucesso'
-     end
+    end
 
+    it 'excluindo formatos', :excluindo_todos_formatos do 
+                #Estruturas
+                puts 'Excluindo Estruturas'
+                within('table tbody tr', text: 'Teste - Formato Estruturas') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Estruturas')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+
+                #Cargos
+                puts 'Excluindo Cargos'
+                find('span[id="TabCargo"]').click
+                within('table tbody tr', text: 'Teste - Formato Cargos') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Cargos')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #inclusão de pessoas
+                puts 'Excluindo inclusão de pessoas'
+                find('span[id="TabFuncionarios"]').click
+                within('table tbody tr', text: 'Teste - Formato Pessoa - Inclusão - Alteração') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Pessoa - Inclusão - Alteração')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+         
+                #Desligamento de pessoas
+                puts 'Excluindo Desligamento de pessoas'
+                find('span[id="TabFuncionarios"]').click
+                find('span[id="TabDesligamento"]').click
+                within('table tbody tr', text: 'Teste - Formato Pessoa - Desligamento') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Pessoa - Desligamento')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #Ferias pessoas
+                puts 'Excluindo Ferias pessoas'
+                find('span[id="TabFuncionarios"]').click
+                find('span[id="TabFerias"]').click
+                within('table tbody tr', text: 'Teste - Formato Pessoa - Ferias') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Pessoa - Ferias')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+         
+                #Afastamento pessoas
+                puts 'Excluindo Afastamento pessoas'
+                find('span[id="TabFuncionarios"]').click
+                find('span[id="TabAfastamento"]').click
+                within('table tbody tr', text: 'Teste - Formato Pessoa - Afastamento') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Pessoa - Afastamento')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #Coleta de marcações 
+                puts 'Excluindo Coleta de marcações'
+                find('span[id="TabColetaApontamentos"]').click
+                within('table tbody tr', text: 'Teste - Formato Coleta de Marcações') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Coleta de Marcações')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #Escala de Folga
+                puts 'Excluindo Escala de Folga'
+                find('span[id="TabColetaEscalas"]').click
+                within('table tbody tr', text: 'Teste - Formato Escalas - Folgas') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Escalas - Folgas')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #Escala de Horario
+                puts 'Excluindo Escala de Horario'
+                find('span[id="TabColetaEscalas"]').click
+                find('span[id="TabEscalasHorarios"]').click
+                within('table tbody tr', text: 'Teste - Formato Escalas - Horarios') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Escalas - Horarios')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+        
+                #Usuarios
+                puts 'Excluindo Usuarios'
+                find('span[id="TabUsuarios"]').click
+                within('table tbody tr', text: 'Teste - Formato Usuario') do
+                    selecionar = find('td[class="coletaDescricao"]', text: 'Teste - Formato Usuario')
+                    selecionar.hover
+                    find('span[class="spanButtonText"]', text: 'Remover').click
+                end
+                within('div div div', text: 'Remover') do
+                    find('span[class="PlusButton pointer"]').click
+                end
+                msg = find('div[class="validation-summary-ok"]')
+                expect(msg).to have_content 'Formato de arquivo excluído com sucesso'
+
+    end
 end
