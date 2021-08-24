@@ -1,13 +1,21 @@
-describe 'Sistema grupos de usuarios', :usuario do
+describe 'Sistema grupos de usuarios', :usuarios do
   before(:each) do
-    visit '/Dimep/Account/LogOn?ReturnUrl=%2F'
+    visit '/'
 
-    fill_in 'LogOnModel_UserName', with: 'migracao15042021@dimep.com'
-    fill_in 'LogOnModel_Password', with: '1'
+    #Aceitando os cookies
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    sleep 2
+
+    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 
-    visit '/admin/Usuarios'
-    visit '/admin/GruposUsuarios'
+    # Acessando o cadastro de Grupo de Usuário pela navegação de telas
+    selecionar = find('div[id="toggleUserDefinitions"]')
+    selecionar.hover
+    sleep 2
+    find('div[class="pointer DropDownHeaderElement"]', text: 'Sistema').click
+    find('div[id="MenuGruposUsuarios"]').click
   end
 
   it 'CT017 Inserir um novo grupo de usuário', :ct017_usuario do
