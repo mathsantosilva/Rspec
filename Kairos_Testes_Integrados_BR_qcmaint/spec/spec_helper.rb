@@ -21,8 +21,6 @@ RSpec.configure do |config|
     @login = 'teste75624@dimep.com.br'
     @senha = '1'
     @cnpj_cpf = '43.829.323/0001-03'
-    @nif = ''
-    @rfc = ''
     @cnpj_cpf_filial = '48.186.256/0001-61'
   end
 
