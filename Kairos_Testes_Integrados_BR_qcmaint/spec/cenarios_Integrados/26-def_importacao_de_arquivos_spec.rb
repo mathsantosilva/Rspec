@@ -30,6 +30,7 @@ describe 'Importando Arquivos', :importar do
         div_arquivo = find('#lbl_escolha_2')
         expect(div_arquivo.text).to eql 'inclusao-pessoas.txt'
         find('input[id="bt_importar_pessoas"]').click
+        sleep 10
         resultado = find('div[id="bar_txt"]')
         expect(resultado).to have_content 'Não foram importados 0 registros'
     end

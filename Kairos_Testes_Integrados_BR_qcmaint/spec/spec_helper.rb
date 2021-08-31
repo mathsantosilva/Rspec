@@ -22,6 +22,8 @@ RSpec.configure do |config|
     @senha = '1'
     @cnpj_cpf = '43.829.323/0001-03'
     @cnpj_cpf_filial = '48.186.256/0001-61'
+    @cpf_relogio_smart = '47537056846'
+    @cpf_relogio_pp3 = '47537056846'
   end
 
   Capybara.configure do |config|
