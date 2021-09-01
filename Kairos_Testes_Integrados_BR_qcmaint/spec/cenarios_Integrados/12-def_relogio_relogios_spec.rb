@@ -218,14 +218,38 @@ describe 'relógios', :relogios do
       drop.click
       expect(find('div[id=Summary-Field-Index]')).to have_content 'O Relógio foi adicionado com sucesso'
 
+    #Cadastrando Smart
+    puts 'Cadastrando Smart'
+    find('label[class="pointer"]', text: 'Adicionar').click
+    fill_in 'Relogio_Codigo', with: '112'
+    fill_in 'Relogio_Descricao', with: 'Relogio - Smart'
+    select('Smart', from: 'DdlModeloId').select_option
+    select('Teste automático - Smart', from: 'DdlConfiguracaoId').select_option
+    fill_in 'enderecoIP', with: '192.168.173.12'
+    fill_in 'Relogio_VersaoFirmware', with: '03.00.00'
+    fill_in 'Relogio_NumeroFabricacao', with: '00300000000001234'
+    select('UTC -3', from: 'Relogio_FusoHorarioId').select_option
+    find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+    fill_in 'Relogio_InicioHorarioVerao', with: '06042021'
+    fill_in 'Relogio_FimHorarioVerao', with: '10052021'
+    fill_in 'Relogio_ChaveRSA', with: 'D9E8BBE449F94F85D225DD404D0581182F52C297E2390F43A9913B29CD51B01DF9D1889ADBEA57528DD15A7BAF7FBAC893499CA9BF4C09A5D0DB9D409818C1CA7ED667D569EF4A44AF1DE5D5DB62F72B2F02FE64A8AEAB2B04005D55121BDDA96A1127142EFC15F173023DB9272F4E74B9E3B70DD45E067646048F91AD75C303'
+    fill_in 'Relogio_ExponenteRSA', with: '010001'
+    fill_in 'Relogio_CPF', with: @cpf_relogio_pp3
+    find('label[for="checkLogMonitoracao"]').set(true)
+    drop = find("input[type=button][value='Salvar']", match: :first)
+    drop.click
+    expect(find('div[id=Summary-Field-Index]')).to have_content 'O Relógio foi adicionado com sucesso'
+
+
+
     #Cadastrando Henry
       puts 'Cadastrando Henry'
       find('label[class="pointer"]', text: 'Adicionar').click
-      fill_in 'Relogio_Codigo', with: '112'
+      fill_in 'Relogio_Codigo', with: '113'
       fill_in 'Relogio_Descricao', with: 'Relogio - Henry'
       select('Henry', from: 'DdlModeloId').select_option
       select('Teste automático - Henry', from: 'DdlConfiguracaoId').select_option
-      fill_in 'enderecoIP', with: '192.168.173.12'
+      fill_in 'enderecoIP', with: '192.168.173.13'
       fill_in 'Relogio_VersaoFirmware', with: '03.00.00'
       fill_in 'Relogio_NumeroFabricacao', with: '00300000000000008'
       select('UTC -3', from: 'Relogio_FusoHorarioId').select_option
@@ -243,11 +267,11 @@ describe 'relógios', :relogios do
     #Cadastrando Control ID
       puts 'Cadastrando Control ID'
       find('label[class="pointer"]', text: 'Adicionar').click
-      fill_in 'Relogio_Codigo', with: '113'
+      fill_in 'Relogio_Codigo', with: '114'
       fill_in 'Relogio_Descricao', with: 'Relogio - Control ID'
       select('Control ID', from: 'DdlModeloId').select_option
       select('Teste automático - Control ID', from: 'DdlConfiguracaoId').select_option
-      fill_in 'enderecoIP', with: '192.168.173.13'
+      fill_in 'enderecoIP', with: '192.168.173.14'
       fill_in 'Relogio_VersaoFirmware', with: '03.00.00'
       fill_in 'Relogio_NumeroFabricacao', with: '00300000000000009'
       select('UTC -3', from: 'Relogio_FusoHorarioId').select_option
@@ -406,6 +430,20 @@ describe 'relógios', :relogios do
       end
       msg = find('div[class="validation-summary-ok"]')
       expect(msg).to have_content 'O Relógio foi removido com sucesso'
+
+    # Deletando Smart
+    puts 'Deletando Smart'
+    within('table tbody tr', text: 'Relogio - Smart') do
+      selecionar = find('td[class="relogioDescricao"]', text: 'Relogio - Smart')
+      selecionar.hover
+      find('img[alt="Remover"]').click
+    end
+    within('div div div', text: 'Remover') do
+    find('span[class="PlusButton pointer"]').click
+    end
+    msg = find('div[class="validation-summary-ok"]')
+    expect(msg).to have_content 'O Relógio foi removido com sucesso'
+
 
     # Deletando Henry
       puts 'Deletando Henry'
