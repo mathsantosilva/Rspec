@@ -18,9 +18,11 @@ RSpec.configure do |config|
 
   config.before(:example) do
     page.current_window.maximize
-    @login = 'teste75624@dimep.com.br'
+    require 'faker'
+    @login = Faker::Name.name
     @senha = '1'
-    @cnpj_cpf = '43.829.323/0001-03'
+    @cnpj = '43.829.323/0001-03'
+    @cpf = CpfUtils.cpf
     @cnpj_cpf_filial = '48.186.256/0001-61'
     @cpf_relogio_smart = '47537056846'
     @cpf_relogio_pp3 = '47537056846'
@@ -30,7 +32,7 @@ RSpec.configure do |config|
     config.default_driver = :selenium_chrome
     config.default_max_wait_time = 25
     config.app_host = 'http://qcmaint.dimepkairos.com.br/'
-  end
+   end
 
   config.after(:example) do |e|
     nome = e.description.gsub(/[^A-Za-z0-9 ]/, '').tr('', '_')
