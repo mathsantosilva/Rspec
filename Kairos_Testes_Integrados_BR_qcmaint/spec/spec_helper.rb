@@ -1,6 +1,7 @@
 require 'capybara'
 require 'capybara/rspec'
 require 'selenium-webdriver'
+require 'faker'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,14 +19,21 @@ RSpec.configure do |config|
 
   config.before(:example) do
     page.current_window.maximize
-    require 'faker'
-    @login = Faker::Name.name
+    @login = 'teste75624@dimep.com.br'
     @senha = '1'
     @cnpj = '43.829.323/0001-03'
-    @cpf = CpfUtils.cpf
+    #@cpf = CpfUtils.cpf
     @cnpj_cpf_filial = '48.186.256/0001-61'
     @cpf_relogio_smart = '47537056846'
     @cpf_relogio_pp3 = '47537056846'
+    @nome_aleatorio = Faker::Name.name
+    @email_aleatorio = Faker::Internet.email
+    #@ip_aleatorio = Faker::Internet.ip
+    @cidade_aleatoria = Faker::Address.city
+    @rua_aleatoria = Faker::Address.street_address
+    @pais_aleatorio = Faker::Address.country
+    @estado_aleatorio = Faker::Address.state
+    @nome_empresa_aleatoria = Faker::Company.name
   end
 
   Capybara.configure do |config|
