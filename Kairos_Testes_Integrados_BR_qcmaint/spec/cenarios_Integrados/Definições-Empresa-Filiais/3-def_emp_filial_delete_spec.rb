@@ -18,6 +18,7 @@ describe 'filial', :deletando_filial do
     it "Removendo a empresa filial" do
     puts 'Removendo filial'
         within('table tbody tr', text:'Empresa Filial') do
+            #Foi aberto a tarefa 66834 referente a seleção da linha das filias , por não haver nenhum elemento 
             selecionar = find('td[style="width: 55%;"]', text: 'Empresa Filial')
             selecionar.hover
             find('span[class="btnDeleteFilial pointer spanButton tooltip"]', text: 'Remover').click
