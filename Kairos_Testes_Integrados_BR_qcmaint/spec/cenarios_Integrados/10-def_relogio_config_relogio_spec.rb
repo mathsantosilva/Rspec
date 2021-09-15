@@ -2,8 +2,8 @@ describe 'configuração', :config_relogio do
   before(:each) do
     visit '/'
     #Aceitando os cookies
-    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-    sleep 2 
+    # find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+    # sleep 2 
 
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
