@@ -20,32 +20,43 @@ describe 'empresa', :empresa_resource do
     # visit '/admin/Empresas/Create'
   end
 
-  it 'CT001 Inserir uma nova empresa', :ct001_empresa do
-    fill_in 'Empresa_Codigo', with: '21438506'
-    fill_in 'Empresa_CEI', with: '233257875388'
-    fill_in 'Empresa_Telefone', with: '999999999'
-    find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: 'Empresa Nova'
-    fill_in 'Empresa_CnpjCpf', with: @cnpj_cpf
-    select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
-    fill_in 'Empresa_Endereco', with: 'rua abcd'
-    fill_in 'Empresa_Bairro', with: 'abcd'
-    fill_in 'Empresa_Cidade', with: 'abcd'
-    fill_in 'Empresa_UF', with: 'SP'
-    fill_in 'Empresa_Pais', with: 'Brasil'
-    fill_in 'Empresa_URL', with: 'https://www.dimepkairos.com.br/Dimep/Account/LogOn?ReturnUrl=%2F'
-    fill_in 'Empresa_Email', with: 'kairos@kairos.com'
-    fill_in 'Empresa_DataAbertura', with: '10112020'
-    select('UTC - 12', from: 'Empresa_FusoHorario_Id').select_option
-    find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
-    fill_in 'Empresa_InicioHorarioVerao', with: '10032021'
-    fill_in 'Empresa_FimHorarioVerao', with: '10052021'
-    fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
-    fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
-    fill_in 'connectChave_ChaveConnect', with: 'S123ab&*(#$'
-    drop = find("input[type=button][value='Salvar']", match: :first)
-    drop.click
+  it 'Validando o Resource no create', :resource_crate do
+    pagina = page
+    puts 'codigo'
+    find_field('.labelFormEdit', with: 'Código:', disabled: true)
+    puts 'CEI'
+    # pagina.has_field('CEI')
+    # page.has_field?('Telefone')
+    # page.has_field?('Utiliza portaria 1510')
+    # page.has_field?('Razão Socia')
+    # page.has_field?('CNPJ/CPF')
+    # page.has_field?('Ramo de atividade', with: 'AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA')
+    # page.has_field?('Endereço')
+    # page.has_field?('Bairro')
+    # page.has_field?('UF')
+    # page.has_field?('País')
+    # page.has_field?('Email')
+    # page.has_field?('Dia de abertura do período')
+    # page.has_field?('Fuso horário', with: 'UTC -3')
+    # page.has_field?('Horário de verão')
+    # page.has_field?('Início horário de verão')
+    # page.has_field?('Fim horário de verão')
+    # page.has_field?('Data de Previsão do Próximo Fechamento', with: '00/00/0000')
+    # page.has_field?('Data Limite para Tratamento de Ponto', with: '00/00/0000')
+    # page.has_field?('Alteração Automática')
+    # page.has_field?('Chave do Kairos Connect')
+    # page.has_field?('Logotipo personalizado')
 
-    expect(find('div[id=Summary-Field-Index]')).to have_content 'A Empresa foi criada com sucesso'
+    # texto = find('div div input', 'input[id="Empresa_Codigo"]')
+    # expect(texto).to match_selector '/html/body/div[1]/div[3]/form/div[5]/div[1]'
+    # expect(texto).to have_text 'Código:'
+
+
+
+
+   end  
+
+   it 'Validando o Resource no update', :resource_update do
+  
    end  
   end

@@ -12,7 +12,7 @@ describe 'empresa', :empresa_update do
     sleep 3
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuEmpresas"]').click
-    within('table tbody tr') do
+    within('table tbody tr', text: 'Empresa Br - Automação de testes - 17-08-2021 - 1101') do
     selecionar = find('td[style="width: 45%;"]')
     selecionar.hover
     find('img[class="pointer icons editIcon"]').click
