@@ -1,4 +1,4 @@
-describe 'configuração', :config_relogio do
+describe 'configuração', :md_config_relogio do
   before(:each) do
     visit '/'
     #Aceitando os cookies
@@ -7,13 +7,20 @@ describe 'configuração', :config_relogio do
 
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
-    click_button 'Entrar'
+    find('button[id="btnFormLogin"]').click
+
+    #Fechar mensagem 
+    within('div[class="modal-step-modular"]') do
+      find('div[class="close-button-modular"]').click
+    end
 
     # Acessando o cadastro de Configuração de relógio pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
     sleep 3
     find('div[class="pointer DropDownHeaderElement"]', text: 'Relógios').click
+
+
    
  
   end
