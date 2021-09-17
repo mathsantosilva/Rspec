@@ -14,7 +14,8 @@ describe 'filial', :alterando_filial do
       find('div[id="MenuFiliais"]').click
         within('table tbody tr', text:'Empresa Filial') do
             sleep 2
-            #button = browser.scroll.to :center
+            #Tentar fazer rolar a pagina automatico
+            #button = browser.scroll.to :center 
             selecionar = find('td[style="width: 55%;"]', text: 'Empresa Filial')
             sleep 2
             selecionar.hover
