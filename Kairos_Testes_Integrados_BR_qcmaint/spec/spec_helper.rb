@@ -2,6 +2,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'faker'
+#require 'watirspec/rake_tasks'
+
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,12 +20,13 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.before(:example) do
+    #WatirSpec::RakeTasks.new
     page.current_window.maximize
     @login = 'teste75624@dimep.com.br'
     @senha = '1'
     @cnpj = '43.829.323/0001-03'
     #@cpf = CpfUtils.cpf
-    @cnpj_cpf_filial = '48.186.256/0001-61'
+    @cnpj_cpf_filial = '68644523000104'
     @cpf_relogio_smart = '47537056846'
     @cpf_relogio_pp3 = '47537056846'
     @nome_aleatorio = Faker::Name.name

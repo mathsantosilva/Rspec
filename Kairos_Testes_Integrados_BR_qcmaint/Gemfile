@@ -7,6 +7,7 @@ gem "rspec", "3.10.0"
 gem "selenium-webdriver", "3.142.7"
 gem "ffi", "1.12.2"
 gem 'cpf_utils'
+gem 'watir-scroll'
 
 group :development do 
     gem "better_errors"
