@@ -1,27 +1,21 @@
-describe 'Cargos', :cargos do
+describe 'Cargos', :cargo_create do
   before(:each) do
     visit '/'
-    sleep 2
-
+ 
     #Aceitando os cookies
-    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-    sleep 2    
-
+    find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click   
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
-    
     # Acessando o cadastro cargos pela navegação de telas
     selecionar = find('div[id="toggleUserDefinitions"]')
     selecionar.hover
-    sleep 3
-    
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuCargos"]').click
 
   end
 
-  it 'CT005 Inserir um novo cargo', :ct005_cargo do
+  it 'Inserir um novo cargo', :cargo_create_1 do
     fill_in 'Cargo_Codigo', with: '123174231'
     fill_in 'Cargo_Descricao', with: 'abcgdga'
 
