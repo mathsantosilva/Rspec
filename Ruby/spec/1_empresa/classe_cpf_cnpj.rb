@@ -1,4 +1,0 @@
-# class geradorCNPJ
-#     require 
-    
-# end
