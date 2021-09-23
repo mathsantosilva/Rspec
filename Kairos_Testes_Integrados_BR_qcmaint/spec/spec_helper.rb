@@ -40,6 +40,7 @@ RSpec.configure do |config|
     @pais_aleatorio = Faker::Address.country
     @estado_aleatorio = Faker::Address.state
     @nome_empresa_aleatoria = Faker::Company.name
+    @codigo = 'Código:'
   end
 
   Capybara.configure do |config|
