@@ -23,6 +23,9 @@ RSpec.configure do |config|
     #WatirSpec::RakeTasks.new
     page.current_window.maximize
     @login = 'teste75624@dimep.com.br'
+    @user_mx = 'teste75624@dimep.com.mx'
+    @user_pt = 'teste75624@dimep.com.pt'
+    @user_en = 'teste75624@dimep.com.en'
     @senha = '1'
     @cnpj = '43.829.323/0001-03'
     #@cpf = CpfUtils.cpf
@@ -37,6 +40,7 @@ RSpec.configure do |config|
     @pais_aleatorio = Faker::Address.country
     @estado_aleatorio = Faker::Address.state
     @nome_empresa_aleatoria = Faker::Company.name
+    @codigo = 'Código:'
   end
 
   Capybara.configure do |config|
