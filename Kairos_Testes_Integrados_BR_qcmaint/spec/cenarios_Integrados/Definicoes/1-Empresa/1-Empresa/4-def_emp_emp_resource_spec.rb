@@ -1,7 +1,10 @@
+# require "commom/expect"
+# expect = Expect.new
+
+
 describe 'empresa', :empresa_resource do
   before(:each) do
     visit '/'
-    expect(page.title).to eql 'kairos'
 
     fill_in 'LogOnModel_UserName', with: @login
     fill_in 'LogOnModel_Password', with: @senha
@@ -12,8 +15,6 @@ describe 'empresa', :empresa_resource do
     sleep 3
     find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
     find('div[id="MenuEmpresas"]').click
-    find('label[class="pointer"]').click
-    
 
     # Acessar a empresa direto pela URL
     # visit '/admin/Empresas'
@@ -21,42 +22,76 @@ describe 'empresa', :empresa_resource do
   end
 
   it 'Validando o Resource no create', :resource_crate do
-    pagina = page
-    puts 'codigo'
-    find_field('.labelFormEdit', with: 'Código:', disabled: true)
-    puts 'CEI'
-    # pagina.has_field('CEI')
-    # page.has_field?('Telefone')
-    # page.has_field?('Utiliza portaria 1510')
-    # page.has_field?('Razão Socia')
-    # page.has_field?('CNPJ/CPF')
-    # page.has_field?('Ramo de atividade', with: 'AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA')
-    # page.has_field?('Endereço')
-    # page.has_field?('Bairro')
-    # page.has_field?('UF')
-    # page.has_field?('País')
-    # page.has_field?('Email')
-    # page.has_field?('Dia de abertura do período')
-    # page.has_field?('Fuso horário', with: 'UTC -3')
-    # page.has_field?('Horário de verão')
-    # page.has_field?('Início horário de verão')
-    # page.has_field?('Fim horário de verão')
-    # page.has_field?('Data de Previsão do Próximo Fechamento', with: '00/00/0000')
-    # page.has_field?('Data Limite para Tratamento de Ponto', with: '00/00/0000')
-    # page.has_field?('Alteração Automática')
-    # page.has_field?('Chave do Kairos Connect')
-    # page.has_field?('Logotipo personalizado')
+    find('label[class="pointer"]').click
+    # expect.comparecontent('Código:')
 
-    # texto = find('div div input', 'input[id="Empresa_Codigo"]')
-    # expect(texto).to match_selector '/html/body/div[1]/div[3]/form/div[5]/div[1]'
-    # expect(texto).to have_text 'Código:'
+    expect(page).to have_content 'Código:'
+    expect(page).to have_content 'CEI:'
+    expect(page).to have_content 'Telefone:'
+    expect(page).to have_content 'Utiliza portaria 1510'
+    expect(page).to have_content 'Razão Social:'
+    expect(page).to have_content 'CNPJ/CPF:'
+    expect(page).to have_content 'Ramo de atividade:'
+    # expect(find('select[id="Empresa_RamoAtividade_Id"]').selected?).to be(AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA)
+    expect(page).to have_content 'Endereço:'
+    expect(page).to have_content 'Bairro:'
+    expect(page).to have_content 'UF:'
+    expect(page).to have_content 'País:'
+    expect(page).to have_content 'URL:'
+    expect(page).to have_content 'Email:'
+    expect(page).to have_content 'Dia de abertura do período:'
+    expect(page).to have_content 'Fuso horário:'
+    # 'UTC -3'
+    expect(page).to have_content 'Horário de verão:'
+    expect(page).to have_content 'Início horário de verão:'
+    expect(page).to have_content 'Fim horário de verão:'
+    expect(page).to have_content 'Data de Previsão do Próximo Fechamento:'
+    # with: '00/00/0000'
+    expect(page).to have_content 'Data Limite para Tratamento de Ponto:' 
+    # with: '00/00/0000'
+    expect(page).to have_content 'Alteração Automática'
+    expect(page).to have_content 'Chave do Kairos Connect :'
+    expect(page).to have_content 'Chave pública para geração de Comprovante de Ponto:'
+    expect(page).to have_content 'Logotipo personalizado:'
+    expect(page).to have_content 'Localização:'
 
+  end  
 
+  it 'Validando o Resource no update', :resource_update do
+    within('table tbody tr', text: 'Empresa Br - Automação de testes - 17-08-2021 - 1101') do
+      selecionar = find('td[style="width: 45%;"]')
+      selecionar.hover
+      find('img[class="pointer icons editIcon"]').click
+    end
 
-
-   end  
-
-   it 'Validando o Resource no update', :resource_update do
-  
-   end  
-  end
+    expect(page).to have_content 'Código:'
+    expect(page).to have_content 'CEI:'
+    expect(page).to have_content 'Telefone:'
+    expect(page).to have_content 'Utiliza portaria 1510'
+    expect(page).to have_content 'Razão Social:'
+    expect(page).to have_content 'CNPJ/CPF:'
+    expect(page).to have_content 'Ramo de atividade:'
+    # expect(find('select[id="Empresa_RamoAtividade_Id"]').selected?).to be(AGRICULTURA, PECUÁRIA, PRODUÇÃO FLORESTAL, PESCA E AQÜICULTURA)
+    expect(page).to have_content 'Endereço:'
+    expect(page).to have_content 'Bairro:'
+    expect(page).to have_content 'UF:'
+    expect(page).to have_content 'País:'
+    expect(page).to have_content 'URL:'
+    expect(page).to have_content 'Email:'
+    expect(page).not_to have_content 'Dia de abertura do período:'
+    expect(page).to have_content 'Fuso horário:'
+    # 'UTC -3'
+    expect(page).to have_content 'Horário de verão:'
+    expect(page).to have_content 'Início horário de verão:'
+    expect(page).to have_content 'Fim horário de verão:'
+    expect(page).to have_content 'Data de Previsão do Próximo Fechamento:'
+    # with: '00/00/0000'
+    expect(page).to have_content 'Data Limite para Tratamento de Ponto:' 
+    # with: '00/00/0000'
+    expect(page).to have_content 'Alteração Automática'
+    expect(page).to have_content 'Chave do Kairos Connect :'
+    expect(page).to have_content 'Chave pública para geração de Comprovante de Ponto:'
+    expect(page).to have_content 'Logotipo personalizado:'
+    expect(page).to have_content 'Localização:'
+  end  
+end
