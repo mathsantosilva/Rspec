@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'faker'
+require 'cpf_cnpj'
 
 
 RSpec.configure do |config|
@@ -25,19 +26,20 @@ RSpec.configure do |config|
     @user_pt = 'teste75624@dimep.com.pt'
     @user_en = 'teste75624@dimep.com.en'
     @senha = '1'
-    @cnpj = '43.829.323/0001-03'
-    #@cpf = CpfUtils.cpf
-    @cnpj_cpf_filial = '68644523000104'
-    @cpf_relogio_smart = '47537056846'
-    @cpf_relogio_pp3 = '47537056846'
+    @cnpj = CNPJ.generate
+    @cpf = CPF.generate
+    @time = Time.new()
+    @codigo_aleatorio = Faker::Number.number(digits: 9)
     @nome_aleatorio = Faker::Name.name
     @email_aleatorio = Faker::Internet.email
-    #@ip_aleatorio = Faker::Internet.ip
-    @cidade_aleatoria = Faker::Address.city
-    @rua_aleatoria = Faker::Address.street_address
-    @pais_aleatorio = Faker::Address.country
+    @endereco_aleatorio = Faker::Address.full_address
+    @bairro_aleatorio = Faker::Address.secondary_address
     @estado_aleatorio = Faker::Address.state
-    @nome_empresa_aleatoria = Faker::Company.name
+    @cidade_aleatoria = Faker::Address.city
+    @pais_aleatorio = Faker::Address.country 
+    @nome_empresa_aleatorio = Faker::Company.name
+    @chave_aleatoria = Faker::Crypto.md5
+
   end
 
   Capybara.configure do |config|
