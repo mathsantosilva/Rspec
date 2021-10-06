@@ -7,9 +7,10 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: @user_br
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
+      common.logon
+      # fill_in 'LogOnModel_UserName', with: @user_br
+      # fill_in 'LogOnModel_Password', with: @senha
+      # click_button 'Entrar'
       
       # Acessando a empresa pela navegação de telas
       common.nav('Empresa')

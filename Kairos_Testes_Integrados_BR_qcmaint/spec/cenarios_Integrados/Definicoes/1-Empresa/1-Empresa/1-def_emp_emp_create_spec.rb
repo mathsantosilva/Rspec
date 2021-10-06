@@ -22,7 +22,7 @@ describe 'Cadastro de empresa', :empresa_create do
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: '	Empresa Br - Automação de testes - ' + @time.to_s
+    fill_in 'Empresa_RazaoSocial', with: 'Empresa Br - Automação de testes - ' + @time.to_s
     fill_in 'Empresa_CnpjCpf', with: @cnpj
     select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
     fill_in 'Empresa_Endereco', with: @endereco_aleatorio
@@ -54,7 +54,7 @@ describe 'Cadastro de empresa', :empresa_create do
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
     find('label[for="CbUtilizaPortaria"]', visible: true)
-    fill_in 'Empresa_RazaoSocial', with: '	Empresa Br - Automação de testes - ' + @time.to_s
+    fill_in 'Empresa_RazaoSocial', with: 'Empresa Br - Automação de testes - ' + @time.to_s
     fill_in 'Empresa_CnpjCpf', with: @cpf
     select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
     fill_in 'Empresa_Endereco', with: @endereco_aleatorio

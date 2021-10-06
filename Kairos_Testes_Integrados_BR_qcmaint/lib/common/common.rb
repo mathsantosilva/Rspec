@@ -6,10 +6,10 @@ class Common
 
     #Realizando o login BR
     def logon()
-        fill_in 'LogOnModel_UserName', with: @user_br
-        puts @user_br
-        fill_in 'LogOnModel_Password', with: @senha
-        puts @senha
+        fill_in 'LogOnModel_UserName', with: $user_br
+        puts $user_br
+        fill_in 'LogOnModel_Password', with: $senha
+        puts $senha
         click_button 'Entrar'
     end
 
