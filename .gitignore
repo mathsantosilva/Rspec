@@ -1,7 +1,4 @@
 Kairos_Testes_Integrados_BR_qcmaint/log/**
 Kairos_Testes_Integrados_MD_qcmaint/log/**
-<<<<<<< HEAD
-=======
 **/spec/spec_helper.rb
 **/Kairos_Testes_Integrados_MD_qcmaint/spec/spec_helper.rb
->>>>>>> 328a1bb1424159fb79977e77aae91ba43adec090
