@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -23,12 +23,15 @@ GEM
     debug_inspector (1.1.0)
     diff-lcs (1.4.4)
     erubi (1.10.0)
+    ffi (1.12.2)
     ffi (1.12.2-x64-mingw32)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.10-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.12.5-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     public_suffix (4.0.6)
+    racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -55,6 +58,7 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   better_errors

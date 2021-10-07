@@ -20,7 +20,7 @@ describe 'criacao filial', :criacao_filial do
     fill_in 'Filial_Codigo', with: '1125'
     fill_in 'Filial_Telefone', with: '999999999'
     fill_in 'Filial_Descricao', with: 'Empresa Filial'
-    fill_in 'Filial_CnpjCpf', with: @cnpj_cpf_filial
+    fill_in 'Filial_CnpjCpf', with: @cnpj
     fill_in 'Filial_Endereco', with: @rua_aleatoria
     fill_in 'Filial_Cidade', with: @cidade_aleatoria
     fill_in 'Filial_Bairro', with: 'Vila Borges'
