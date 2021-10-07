@@ -6,7 +6,7 @@ describe 'login', :login do
     #Aceitando os cookies
     find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
 
-    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_UserName', with: $user_br
     fill_in 'LogOnModel_Password', with: @senha
 
     click_button 'Entrar'

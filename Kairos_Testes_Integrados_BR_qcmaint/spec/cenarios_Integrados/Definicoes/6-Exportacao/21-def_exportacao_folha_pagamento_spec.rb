@@ -6,7 +6,7 @@ describe 'formatos de exportacao', :folha_pagamento do
     find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
 
     #Informações de login
-    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_UserName', with: $user_br
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
 

@@ -4,7 +4,7 @@ describe 'empresa', :MinhaConta do
       @tecla = %i[enter]
       expect(page.title).to eql 'kairos'
   
-      fill_in 'LogOnModel_UserName', with: @login
+      fill_in 'LogOnModel_UserName', with: $user_br
       fill_in 'LogOnModel_Password', with: @senha
       click_button 'Entrar'
 

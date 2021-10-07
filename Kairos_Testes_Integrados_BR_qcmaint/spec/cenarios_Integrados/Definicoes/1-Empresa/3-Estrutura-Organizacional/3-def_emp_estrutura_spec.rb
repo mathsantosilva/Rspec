@@ -7,7 +7,7 @@ describe 'estrutura', :estrutura do
     find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
     sleep 2
 
-    fill_in 'LogOnModel_UserName', with: @login
+    fill_in 'LogOnModel_UserName', with: $user_br
     fill_in 'LogOnModel_Password', with: @senha
     click_button 'Entrar'
       

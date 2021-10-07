@@ -2,7 +2,7 @@ describe 'criacao filial', :validando_resource_filial do
     before(:each) do
       visit '/'
   
-      fill_in 'LogOnModel_UserName', with: @user_br
+      fill_in 'LogOnModel_UserName', with: $user_br
       fill_in 'LogOnModel_Password', with: @senha
       click_button 'Entrar'
   
@@ -48,7 +48,7 @@ end
 #     before(:each) do
 #       visit '/'
   
-#       fill_in 'LogOnModel_UserName', with: @user_en
+#       fill_in 'LogOnModel_UserName', with: $user_en
 #       fill_in 'LogOnModel_Password', with: @senha
 #       click_button 'Entrar'
       

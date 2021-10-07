@@ -8,7 +8,7 @@ describe 'Todos os resources', :empresa_resource_all do
       visit '/'
 
       common.logon
-      # fill_in 'LogOnModel_UserName', with: @user_br
+      # fill_in 'LogOnModel_UserName', with: $user_br
       # fill_in 'LogOnModel_Password', with: @senha
       # click_button 'Entrar'
       
@@ -18,7 +18,7 @@ describe 'Todos os resources', :empresa_resource_all do
 
     it 'No Create', :resource_crate_br do
       #removendo chat da tela
-      common.remove_chat()
+      common.remove_chat
 
       #acessar a criação de empresas
       find('label[class="pointer"]').click
@@ -98,7 +98,7 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: @user_en
+      fill_in 'LogOnModel_UserName', with: $user_en
       fill_in 'LogOnModel_Password', with: @senha
       click_button 'Entrar'
 
@@ -188,7 +188,7 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: @user_mx
+      fill_in 'LogOnModel_UserName', with: $user_mx
       fill_in 'LogOnModel_Password', with: @senha
       click_button 'Entrar'
 
@@ -270,7 +270,7 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: @user_pt
+      fill_in 'LogOnModel_UserName', with: $user_pt
       fill_in 'LogOnModel_Password', with: @senha
       click_button 'Entrar'
 
