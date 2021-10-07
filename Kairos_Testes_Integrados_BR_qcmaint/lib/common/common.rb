@@ -5,30 +5,55 @@ class Common
     include Capybara::DSL
 
     #Realizando o login BR
-    def logon()
+    def logon_br()
         fill_in 'LogOnModel_UserName', with: $user_br
-        puts $user_br
         fill_in 'LogOnModel_Password', with: $senha
-        puts $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login mx
+    def logon_mx()
+        fill_in 'LogOnModel_UserName', with: $user_mx
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login pt
+    def logon_pt()
+        fill_in 'LogOnModel_UserName', with: $user_pt
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login en
+    def logon_en()
+        fill_in 'LogOnModel_UserName', with: $user_en
+        fill_in 'LogOnModel_Password', with: $senha
         click_button 'Entrar'
     end
 
     #executando a navegacao das paginas
-    def nav(value)
+    def nav(text, value)
         selecionar = find('div[id="toggleUserDefinitions"]')
         selecionar.hover
-        sleep 3
-        find('div[class="pointer DropDownHeaderElement"]', text: value).click
-        find('div[id="MenuEmpresas"]').click
+        find('div[class="pointer DropDownHeaderElement"]', text: text).click
+        find(value).click
     end
 
     #acessando botao dentro de um table
-    def select_button(elemento, text)
-        within(elemento , text: text) do
-            selecionar = find('td[style="width: 45%;"]')
+    def select_button(elemento, value)
+        within(elemento) do
+            selecionar = find('td[style="width: 55%;"]', match: :first)
             selecionar.hover
-            find('img[class="pointer icons editIcon"]').click
-          end
+            find(value).click
+        end
+    end
+
+    #acessando botao confirmação remover
+    def confir_remover()
+        within('div div div', text: 'Remover') do
+            find('span[class="PlusButton pointer"]').click
+        end
     end
 
     #Removendo Chat da tela
