@@ -6,10 +6,8 @@ describe 'empresa', :empresa_update do
     visit '/'
     expect(page.title).to eql 'kairos'
 
-    fill_in 'LogOnModel_UserName', with: $user_br
-    fill_in 'LogOnModel_Password', with: @senha
-    click_button 'Entrar'
-
+    #Realiza login
+    common.logon_br
     # Acessando a empresa pela navegação de telas
     common.nav('Empresa')
     common.select_button('table tbody tr', 'Empresa Br - Automação de testes - 17-08-2021 - 1101')
@@ -31,7 +29,7 @@ describe 'empresa', :empresa_update do
     fill_in 'Empresa_Cidade', with: $cidade_aleatoria
     fill_in 'Empresa_UF', with: $estado_aleatorio
     fill_in 'Empresa_Pais', with: $pais_aleatorio
-    fill_in 'Empresa_URL', with: 'https://www.dimepkairos.com.br/Dimep/Empresas/Edit/'
+    fill_in 'Empresa_URL', with: $url_aleatoria
     fill_in 'Empresa_Email', with: $email_aleatorio
     drop_fuso = find('#Empresa_FusoHorario_Id')
     drop_fuso.all('option').sample.select_option
@@ -41,12 +39,12 @@ describe 'empresa', :empresa_update do
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10062021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10082021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-    
     drop = find("input[type=button][value='Salvar']", match: :first)
     drop.click
 
     expect(find('div[id=Summary-Field-Index]')).to have_content 'Empresa editada com sucesso'
   end
+
   it 'realizando alteração dos dados da empresa criada com CNPJ' do
     expect(find('input[id="Empresa_Codigo"]').readonly?).to be(true)
     fill_in 'Empresa_CEI', with: '242035439181'
@@ -72,7 +70,6 @@ describe 'empresa', :empresa_update do
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10062021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10082021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-    
     drop = find("input[type=button][value='Salvar']", match: :first)
     drop.click
 

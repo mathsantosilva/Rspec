@@ -1,5 +1,4 @@
 class Common
-    require './spec_helper'
 
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL

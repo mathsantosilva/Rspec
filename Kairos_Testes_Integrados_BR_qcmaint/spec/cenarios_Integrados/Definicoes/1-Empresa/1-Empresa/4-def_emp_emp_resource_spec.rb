@@ -7,16 +7,13 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      common.logon
-      # fill_in 'LogOnModel_UserName', with: $user_br
-      # fill_in 'LogOnModel_Password', with: @senha
-      # click_button 'Entrar'
-      
+      #Realiza login
+      common.logon_br
       # Acessando a empresa pela navegação de telas
-      common.nav('Empresa')
+      common.nav('Empresa', 'div[id="MenuEmpresas"]')
     end
 
-    it 'No Create', :resource_crate_br do
+    it 'No Create', :resource_create_br do
       #removendo chat da tela
       common.remove_chat
 
@@ -98,12 +95,10 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: $user_en
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
-
+      #Realiza login
+      common.logon_en
       # Acessando a empresa pela navegação de telas
-      common.nav('Company')
+      common.nav('Company', 'div[id="MenuEmpresas"]')
     end
 
     it 'No Create', :resource_crate_en do
@@ -188,12 +183,10 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: $user_mx
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
-
+      #Realiza login
+      common.logon_mx
       # Acessando a empresa pela navegação de telas
-      common.nav('Sociedad')
+      common.nav('Sociedad', 'div[id="MenuEmpresas"]')
     end
 
     it 'No Create', :resource_crate_mx do
@@ -270,12 +263,10 @@ describe 'Todos os resources', :empresa_resource_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: $user_pt
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
-
+      #Realiza login
+      common.logon_pt
       # Acessando a empresa pela navegação de telas
-      common.nav('Empresa')
+      common.nav('Empresa', 'div[id="MenuEmpresas"]')
     end
 
     it 'No Create', :resource_crate_pt do
