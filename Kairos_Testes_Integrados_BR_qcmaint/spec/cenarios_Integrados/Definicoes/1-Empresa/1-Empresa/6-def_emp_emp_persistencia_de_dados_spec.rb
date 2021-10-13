@@ -5,12 +5,10 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
     before(:each) do
       visit '/'
 
-      fill_in 'LogOnModel_UserName', with: $user_br
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
-      
+      #Realiza login
+      common.logon_br
       # Acessando a empresa pela navegação de telas
-      common.nav('Empresa')
+      common.nav('Empresa', 'div[id="MenuEmpresas"]')
     end
 
     it 'utilizando codigo repetido', :pesistencia_codigo do
@@ -25,7 +23,7 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
       fill_in 'Empresa_Telefone', with: '116541954654'
       find('label[for="CbUtilizaPortaria"]', visible: true)
       fill_in 'Empresa_RazaoSocial', with: 'Empresa Br - Automação de testes - ' + $time.to_s
-      fill_in 'Empresa_CnpjCpf', with: @cnpj
+      fill_in 'Empresa_CnpjCpf', with: $cnpj
       select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
       fill_in 'Empresa_Endereco', with: $endereco_aleatorio
       fill_in 'Empresa_Bairro', with: $bairro_aleatorio
@@ -42,7 +40,6 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
       fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
       fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
       fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-
       drop = find("input[type=button][value='Salvar']", match: :first)
       drop.click
 
@@ -61,7 +58,7 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
       fill_in 'Empresa_Telefone', with: '116541954654'
       find('label[for="CbUtilizaPortaria"]', visible: true)
       fill_in 'Empresa_RazaoSocial', with: 'Empresa Br  - Automação de testes - 17-08-2021 - 1101'
-      fill_in 'Empresa_CnpjCpf', with: @cnpj
+      fill_in 'Empresa_CnpjCpf', with: $cnpj
       select('INDÚSTRIAS EXTRATIVAS', from: 'Empresa_RamoAtividade_Id').select_option
       fill_in 'Empresa_Endereco', with: $endereco_aleatorio
       fill_in 'Empresa_Bairro', with: $bairro_aleatorio
@@ -78,7 +75,6 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
       fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
       fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
       fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-
       drop = find("input[type=button][value='Salvar']", match: :first)
       drop.click
 
@@ -114,7 +110,6 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
       fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
       fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
       fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-
       drop = find("input[type=button][value='Salvar']", match: :first)
       drop.click
 
@@ -150,7 +145,6 @@ describe 'Cadastrando empresas com valores existente', :persistencia_all do
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-
     drop = find("input[type=button][value='Salvar']", match: :first)
     drop.click
 
