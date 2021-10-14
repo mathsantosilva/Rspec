@@ -7,7 +7,7 @@ describe 'formatos de exportacao', :folha_pagamento do
 
     #Informações de login
     fill_in 'LogOnModel_UserName', with: $user_br
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro de Formato de exportação de folha de pagamento pela navegação de telas

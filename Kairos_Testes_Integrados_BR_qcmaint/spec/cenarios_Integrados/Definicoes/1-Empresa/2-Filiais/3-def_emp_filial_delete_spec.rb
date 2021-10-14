@@ -1,12 +1,12 @@
 require 'common\common'
 common = Common.new
 
-describe 'filial', :deletando_filial do
+describe 'filial', :filial_delete do
     before(:each) do
       visit '/'
 
-      sleep 1
       find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+      sleep 1
   
       common.logon_br
   

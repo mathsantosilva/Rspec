@@ -1,17 +1,14 @@
-describe 'criacao filial', :validando_resource_filial do
+describe 'Resource filial', :filial_resource do
     before(:each) do
       visit '/'
+
+      find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
+      sleep 1
   
-      fill_in 'LogOnModel_UserName', with: $user_br
-      fill_in 'LogOnModel_Password', with: @senha
-      click_button 'Entrar'
+      common.logon_br
   
       # Acessando o cadastro da empresa filial pela navegação de telas
-      selecionar = find('div[id="toggleUserDefinitions"]')
-      selecionar.hover
-      sleep 3
-      find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
-      find('div[id="MenuFiliais"]').click
+      common.nav('Empresa','div[id="MenuFiliais"')
   
     end
 
@@ -44,12 +41,12 @@ describe 'criacao filial', :validando_resource_filial do
 
 end
 
-# describe 'Validando Resource em Inglês', :filial_resource_en do
+# describe 'Validando Resource em Inglês', :resource_filial_en do
 #     before(:each) do
 #       visit '/'
   
 #       fill_in 'LogOnModel_UserName', with: $user_en
-#       fill_in 'LogOnModel_Password', with: @senha
+#       fill_in 'LogOnModel_Password', with: $senha
 #       click_button 'Entrar'
       
 #       # Acessando o cadastro da empresa filial pela navegação de telas

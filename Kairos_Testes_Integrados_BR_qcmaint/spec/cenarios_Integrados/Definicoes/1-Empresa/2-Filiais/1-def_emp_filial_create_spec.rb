@@ -1,7 +1,7 @@
 require 'common\common'
 common = Common.new
 
-describe 'criacao filial', :criacao_filial do
+describe 'criacao filial', :filial_create do
   before(:each) do
     visit '/'
 

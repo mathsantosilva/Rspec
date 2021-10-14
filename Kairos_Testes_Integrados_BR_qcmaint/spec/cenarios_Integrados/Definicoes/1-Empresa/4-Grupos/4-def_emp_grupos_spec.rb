@@ -9,7 +9,7 @@ describe 'grupos', :grupos do
     sleep 2
     
     fill_in 'LogOnModel_UserName', with: $user_br
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
     
     # Acessando o cadastro grupos pela navegação de telas

@@ -4,7 +4,7 @@ describe 'Cargos', :cargo_resource_eng do
       #Aceitando os cookies
       find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click   
       fill_in 'LogOnModel_UserName', with: $user_en
-      fill_in 'LogOnModel_Password', with: @senha
+      fill_in 'LogOnModel_Password', with: $senha
       click_button 'Entrar'
 
   

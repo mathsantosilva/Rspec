@@ -2,7 +2,7 @@ describe 'Importando Arquivos', :importar do
     before(:each) do
         visit '/'
         fill_in 'LogOnModel_UserName', with: $user_br
-        fill_in 'LogOnModel_Password', with: @senha
+        fill_in 'LogOnModel_Password', with: $senha
         click_button 'btnFormLogin'
         visit '/Dimep/Importacao'
         sleep 5

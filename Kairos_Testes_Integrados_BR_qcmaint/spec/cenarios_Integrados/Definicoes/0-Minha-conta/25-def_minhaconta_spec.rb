@@ -5,7 +5,7 @@ describe 'empresa', :MinhaConta do
       expect(page.title).to eql 'kairos'
   
       fill_in 'LogOnModel_UserName', with: $user_br
-      fill_in 'LogOnModel_Password', with: @senha
+      fill_in 'LogOnModel_Password', with: $senha
       click_button 'Entrar'
 
       # Acessando a Minha Conta pela navegação de telas

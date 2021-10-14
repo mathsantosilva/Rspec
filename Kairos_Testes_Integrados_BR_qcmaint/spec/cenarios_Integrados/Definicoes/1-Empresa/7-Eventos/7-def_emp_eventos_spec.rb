@@ -7,7 +7,7 @@ describe 'eventos', :eventos do
     sleep 2 
 
     fill_in 'LogOnModel_UserName', with: $user_br
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro eventos pela navegação de telas

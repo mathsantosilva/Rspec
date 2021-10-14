@@ -1,7 +1,7 @@
 require 'common\common'
 common = Common.new
 
-describe 'filial', :alterando_filial do
+describe 'filial', :filial_update do
     before(:each) do
       visit '/'
 
@@ -34,9 +34,9 @@ describe 'filial', :alterando_filial do
         fill_in 'Filial_URL', with: 'http://filialalterada.com.br'
         fill_in 'Filial_Email', with: $email_aleatorio
         select('UTC (GMT)', from: 'Filial_FusoHorario_Id').select_option
-        find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
-        # fill_in 'Filial.InicioHorarioVerao', with: '13102021'
-        # fill_in 'Filial_FimHorarioVerao', with: '13112021'
+        #find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+        fill_in 'Filial.InicioHorarioVerao', with: '13102021'
+        fill_in 'Filial_FimHorarioVerao', with: '13112021'
         fill_in 'Filial_DataPrevisaoProximoFechamento', with: '13042021'
         fill_in 'Filial_DataLimiteTratamentoPonto', with: '13052021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria

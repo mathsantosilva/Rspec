@@ -8,7 +8,7 @@ describe 'justificativas', :justificativas do
     sleep 2 
 
     fill_in 'LogOnModel_UserName', with: $user_br
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro justificativas pela navegação de telas
