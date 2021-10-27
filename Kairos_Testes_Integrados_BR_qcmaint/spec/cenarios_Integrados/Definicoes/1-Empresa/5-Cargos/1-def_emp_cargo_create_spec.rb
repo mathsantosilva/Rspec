@@ -1,6 +1,15 @@
+require 'common\common'
+common = Common.new
+
 describe 'Cargos', :cargo_create do
   before(:each) do
     visit '/'
+    expect(page.title).to eql 'kairos'
+
+    #Realiza login
+    common.logon_br
+    # Acessando a empresa pela navegação de telas
+    common.nav('Empresa', 'div[id="MenuEmpresas"]')
  
     #Aceitando os cookies
     find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click   
