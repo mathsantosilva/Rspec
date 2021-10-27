@@ -6,8 +6,8 @@ describe 'cadastrar Formato de importação de pesssoas', :formato_pessoas do
     find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
 
     #Informações de login
-    fill_in 'LogOnModel_UserName', with: @login
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_UserName', with: $user_br
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro de Formato de pessoas pela navegação de telas

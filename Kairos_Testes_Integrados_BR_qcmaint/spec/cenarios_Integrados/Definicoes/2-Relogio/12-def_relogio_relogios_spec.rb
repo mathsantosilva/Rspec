@@ -6,8 +6,8 @@ describe 'relógios', :relogios do
     # find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
     # sleep 2 
 
-    fill_in 'LogOnModel_UserName', with: @login
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_UserName', with: $user_br
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro de Relógio pela navegação de telas
@@ -168,7 +168,7 @@ describe 'relógios', :relogios do
       fill_in 'Relogio_FimHorarioVerao', with: '10052021'
       fill_in 'Relogio_ChaveRSA', with: 'D9E8BBE449F94F85D225DD404D0581182F52C297E2390F43A9913B29CD51B01DF9D1889ADBEA57528DD15A7BAF7FBAC893499CA9BF4C09A5D0DB9D409818C1CA7ED667D569EF4A44AF1DE5D5DB62F72B2F02FE64A8AEAB2B04005D55121BDDA96A1127142EFC15F173023DB9272F4E74B9E3B70DD45E067646048F91AD75C303'
       fill_in 'Relogio_ExponenteRSA', with: '010001'
-      fill_in 'Relogio_CPF', with: @cpf_relogio_pp3
+      fill_in 'Relogio_CPF', with: @cpf
       find('label[for="checkLogMonitoracao"]').set(true)
       drop = find("input[type=button][value='Salvar']", match: :first)
       drop.click
@@ -234,7 +234,7 @@ describe 'relógios', :relogios do
       fill_in 'Relogio_FimHorarioVerao', with: '10052021'
       fill_in 'Relogio_ChaveRSA', with: 'D9E8BBE449F94F85D225DD404D0581182F52C297E2390F43A9913B29CD51B01DF9D1889ADBEA57528DD15A7BAF7FBAC893499CA9BF4C09A5D0DB9D409818C1CA7ED667D569EF4A44AF1DE5D5DB62F72B2F02FE64A8AEAB2B04005D55121BDDA96A1127142EFC15F173023DB9272F4E74B9E3B70DD45E067646048F91AD75C303'
       fill_in 'Relogio_ExponenteRSA', with: '010001'
-      fill_in 'Relogio_CPF', with: @cpf_relogio_pp3
+      fill_in 'Relogio_CPF', with: @cpf
       find('label[for="checkLogMonitoracao"]').set(true)
       drop = find("input[type=button][value='Salvar']", match: :first)
       drop.click

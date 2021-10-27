@@ -5,8 +5,8 @@ describe 'configuração', :config_relogio do
     # find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
     # sleep 2 
 
-    fill_in 'LogOnModel_UserName', with: @login
-    fill_in 'LogOnModel_Password', with: @senha
+    fill_in 'LogOnModel_UserName', with: $user_br
+    fill_in 'LogOnModel_Password', with: $senha
     click_button 'Entrar'
 
     # Acessando o cadastro de Configuração de relógio pela navegação de telas
@@ -1059,12 +1059,25 @@ describe 'configuração', :config_relogio do
         expect(find('div[id=Summary-Field-Index]')).to have_content 'A Configuração Relógio foi criada com sucesso'
   end
 
-it 'Excluindo configuração de relogio', :deletar_config_relogios do
-    puts 'Deletando Configurações:'
-      #Deletando config BioPoint II - Sensor 3
-        puts 'Deletando config BioPoint II - Sensor 3'
-          within('table tbody tr', text: 'Teste automático - BioPoint II - Sensor 3') do
-            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - BioPoint II - Sensor 3')
+  it 'Excluindo configuração de relogio', :deletar_config_relogios do
+      puts 'Deletando Configurações:'
+        #Deletando config BioPoint II - Sensor 3
+          puts 'Deletando config BioPoint II - Sensor 3'
+            within('table tbody tr', text: 'Teste automático - BioPoint II - Sensor 3') do
+              selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - BioPoint II - Sensor 3')
+              selecionar.hover
+              find('span[class="spanButtonText"]', text: 'Remover').click
+            end
+            within('div div div', text: 'Remover') do
+            find('span[class="PlusButton pointer"]').click
+            end
+            msg = find('div[class="validation-summary-ok"]')
+            expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+
+        #Deletando config Micro Point Exportação
+          puts 'Deletando config Micro Point Exportação'
+          within('table tbody tr', text: 'Teste automático - Micro Point Exportação') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Micro Point Exportação')
             selecionar.hover
             find('span[class="spanButtonText"]', text: 'Remover').click
           end
@@ -1073,162 +1086,149 @@ it 'Excluindo configuração de relogio', :deletar_config_relogios do
           end
           msg = find('div[class="validation-summary-ok"]')
           expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-
-      #Deletando config Micro Point Exportação
-        puts 'Deletando config Micro Point Exportação'
-        within('table tbody tr', text: 'Teste automático - Micro Point Exportação') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Micro Point Exportação')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config PrintPoint II
-        puts 'Deletando config PrintPoint II'
-        within('table tbody tr', text: 'Teste automático - Printpoint 2') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Printpoint 2')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Mini Print
-        puts 'Deletando config Mini Print'
-        within('table tbody tr', text: 'Teste automático - Mini Print') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Mini Print')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Face / FaceAccess II
-        puts 'Deletando config Face / FaceAccess II'
-        within('table tbody tr', text: 'Teste automático - Face / FaceAccess II') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Face / FaceAccess II')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Face Access S
-        puts 'Deletando config Face Access S'
-        within('table tbody tr', text: 'Teste automático - Face Access S') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Face Access S')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Biolite Normal
-        puts 'Deletando config Biolite Normal'
-        within('table tbody tr', text: 'Teste automático - Biolite Normal') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Biolite')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config PrintPoint III
-        puts 'Deletando config PrintPoint III'
-        within('table tbody tr', text: 'Teste automático - PrintPoint 3') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - PrintPoint 3')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config FaceAccess
-        puts 'Deletando config FaceAccess'
-        within('table tbody tr', text: 'Teste automático - FaceAccess normal') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - FaceAccess normal')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Printpoint LI
-        puts 'Deletando config Printpoint LI'
-        within('table tbody tr', text: 'Teste automático - Printpoint li') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Printpoint li')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Biolite NG
-        puts 'Deletando config Biolite NG'
-        within('table tbody tr', text: 'Teste automático - Biolite NG') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Biolite NG')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Smart
-        puts 'Deletando config Smart'
-        within('table tbody tr', text: 'Teste automático - Smart') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Smart')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Henry
-        puts 'Deletando config Henry'
-        within('table tbody tr', text: 'Teste automático - Henry') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Henry')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
-      #Deletando config Control ID     
-        puts 'Deletando config Control ID '
-        within('table tbody tr', text: 'Teste automático - Control ID') do
-          selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Control ID')
-          selecionar.hover
-          find('span[class="spanButtonText"]', text: 'Remover').click
-        end
-        within('div div div', text: 'Remover') do
-        find('span[class="PlusButton pointer"]').click
-        end
-        msg = find('div[class="validation-summary-ok"]')
-        expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso' 
+        #Deletando config PrintPoint II
+          puts 'Deletando config PrintPoint II'
+          within('table tbody tr', text: 'Teste automático - Printpoint 2') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Printpoint 2')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Mini Print
+          puts 'Deletando config Mini Print'
+          within('table tbody tr', text: 'Teste automático - Mini Print') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Mini Print')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Face / FaceAccess II
+          puts 'Deletando config Face / FaceAccess II'
+          within('table tbody tr', text: 'Teste automático - Face / FaceAccess II') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Face / FaceAccess II')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Face Access S
+          puts 'Deletando config Face Access S'
+          within('table tbody tr', text: 'Teste automático - Face Access S') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Face Access S')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Biolite Normal
+          puts 'Deletando config Biolite Normal'
+          within('table tbody tr', text: 'Teste automático - Biolite Normal') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Biolite')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config PrintPoint III
+          puts 'Deletando config PrintPoint III'
+          within('table tbody tr', text: 'Teste automático - PrintPoint 3') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - PrintPoint 3')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config FaceAccess
+          puts 'Deletando config FaceAccess'
+          within('table tbody tr', text: 'Teste automático - FaceAccess normal') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - FaceAccess normal')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Printpoint LI
+          puts 'Deletando config Printpoint LI'
+          within('table tbody tr', text: 'Teste automático - Printpoint li') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Printpoint li')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Biolite NG
+          puts 'Deletando config Biolite NG'
+          within('table tbody tr', text: 'Teste automático - Biolite NG') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Biolite NG')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Smart
+          puts 'Deletando config Smart'
+          within('table tbody tr', text: 'Teste automático - Smart') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Smart')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Henry
+          puts 'Deletando config Henry'
+          within('table tbody tr', text: 'Teste automático - Henry') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Henry')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso'
+        #Deletando config Control ID     
+          puts 'Deletando config Control ID '
+          within('table tbody tr', text: 'Teste automático - Control ID') do
+            selecionar = find('td[class="configuracaoRelogioDescricao"]', text: 'Teste automático - Control ID')
+            selecionar.hover
+            find('span[class="spanButtonText"]', text: 'Remover').click
+          end
+          within('div div div', text: 'Remover') do
+          find('span[class="PlusButton pointer"]').click
+          end
+          msg = find('div[class="validation-summary-ok"]')
+          expect(msg).to have_content 'A Configuração Relógio foi removida com sucesso' 
+    end
   end
-end
