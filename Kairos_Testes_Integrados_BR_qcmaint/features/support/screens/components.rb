@@ -1,8 +1,6 @@
-class Common
+class Components
 
-    #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
-    include RSpec::Matchers
 
     #Realizando o login BR
     def logon_br()
@@ -60,10 +58,6 @@ class Common
     def remove_chat()
         script_remove_chat = '$(".dt-chat-widget").attr("style", "display: none");'
         page.execute_script(script_remove_chat)
-    end
-
-    def validando_css(value, css)
-        find(value).to have_css(css)
     end
 
 end

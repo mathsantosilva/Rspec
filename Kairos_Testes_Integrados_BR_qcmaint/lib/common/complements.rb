@@ -1,9 +1,15 @@
-class Complements
+require 'faker'
+require 'cpf_cnpj'
 
-    #!!!Ainda em implementação não utilizar
+# Classe para guardar complementos dos testes
+class Complements
+  def varcommon
     $cnpj = CNPJ.generate
     $cpf = CPF.generate
-    $time = Time.new()
+    $time = Time.new
+  end
+
+  def varcadastro 
     $codigo_aleatorio = Faker::Number.number(digits: 9)
     $nome_aleatorio = Faker::Name.name
     $email_aleatorio = Faker::Internet.email
@@ -11,9 +17,9 @@ class Complements
     $bairro_aleatorio = Faker::Address.secondary_address
     $estado_aleatorio = Faker::Address.state
     $cidade_aleatoria = Faker::Address.city
-    $pais_aleatorio = Faker::Address.country 
+    $pais_aleatorio = Faker::Address.country
     $nome_empresa_aleatoria = Faker::Company.name
     $chave_aleatoria = Faker::Crypto.md5
     $url_aleatoria = Faker::Internet.url
-
+  end
 end
