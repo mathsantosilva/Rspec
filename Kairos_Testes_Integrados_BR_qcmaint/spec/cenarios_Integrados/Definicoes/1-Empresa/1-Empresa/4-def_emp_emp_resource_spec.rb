@@ -55,7 +55,7 @@ describe 'Todos os resources', :empresa_resource_all do
 
     it 'No Update', :resource_update_br do
       #Acessar a edição de empresas
-      common.select_button('table tbody tr', '/html/body/div[1]/div[3]/table/tbody/tr[1]/td[2]', 'Empresa Br - Automação de testes - 17-08-2021 - 1101')
+      common.select_button('table tbody tr', 'Empresa Br - Automação de testes - 17-08-2021 - 1101')
 
       expect(page).to have_content 'Código:'
       expect(page).to have_content 'CEI:'
@@ -86,7 +86,6 @@ describe 'Todos os resources', :empresa_resource_all do
       expect(page).to have_content 'Chave do Kairos Connect :'
       expect(page).to have_content 'Chave pública para geração de Comprovante de Ponto:'
       expect(page).to have_content 'Logotipo personalizado:'
-      scroll_to('input[name="connectChave.ChaveConnect"]')
       expect(page).to have_content 'Localização:'
     end  
   end
