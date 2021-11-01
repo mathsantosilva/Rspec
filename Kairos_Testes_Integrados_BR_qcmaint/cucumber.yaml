@@ -1,3 +1,0 @@
-default: -p bdd -p allure --publish-quiet
-bdd: --format pretty
-allure: --format AllureCucumber::CucumberFormatter --out=logs
