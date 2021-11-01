@@ -2,6 +2,7 @@ class Common
 
     #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
+    include RSpec::Matchers
 
     #Realizando o login BR
     def logon_br()
@@ -40,9 +41,9 @@ class Common
     end
 
     #acessando botao dentro de um table
-    def select_button(elemento, value)
+    def select_button(elemento, caminho, value)
         within(elemento) do
-            selecionar = find('td[style="width: 55%;"]', match: :first)
+            selecionar = find(:xpath, caminho)
             selecionar.hover
             find(value).click
         end
@@ -57,10 +58,12 @@ class Common
 
     #Removendo Chat da tela
     def remove_chat()
-        script_remove_ana = '$(".dt-chat-widget").attr("style", "display: none");'
-        page.execute_script(script_remove_ana)
+        script_remove_chat = '$(".dt-chat-widget").attr("style", "display: none");'
+        page.execute_script(script_remove_chat)
     end
 
-
+    def validando_css(value, css)
+        find(value).to have_css(css)
+    end
 
 end
