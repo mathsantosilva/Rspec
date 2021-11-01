@@ -14,6 +14,7 @@ describe 'Cadastro de empresa', :empresa_create do
     common.nav('Empresa', 'div[id="MenuEmpresas"]')
     # Carrega as variaveis utilizadas nas spec
     complements.varcommon
+    complements.varcadastro
   end
 
   it 'Criando com CNPJ' do
