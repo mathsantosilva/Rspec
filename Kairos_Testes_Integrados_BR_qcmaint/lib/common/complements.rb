@@ -10,7 +10,7 @@ class Complements
   end
 
   def varcadastro 
-    $codigo_aleatorio = Faker::Number.number(digits: 9)
+    $codigo_aleatorio = Faker::Number.number(digits: 10)
     $nome_aleatorio = Faker::Name.name
     $email_aleatorio = Faker::Internet.email
     $endereco_aleatorio = Faker::Address.full_address
