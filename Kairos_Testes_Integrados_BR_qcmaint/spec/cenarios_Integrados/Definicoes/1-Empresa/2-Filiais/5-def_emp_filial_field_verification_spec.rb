@@ -1,17 +1,10 @@
 require 'common\common'
 require 'common\campos_obrigatorios'
-<<<<<<< HEAD
-
-common = Common.new
-obrigatorio = Obrigatorios.new
-=======
 require 'common\cadastros_empresas'
 
 common = Common.new
 obrigatorio = Obrigatorios.new
 cadas_emp = Cadastros.new
->>>>>>> 71dd2774d53603702e022a9a515c7d98044a111d
-
 describe 'Verificação dos campos', :field_verification_filial do
 
     describe 'Obrigatoriedades', :field_obrigatoriedade do
@@ -38,11 +31,6 @@ describe 'Verificação dos campos', :field_verification_filial do
         end
     end
 
-<<<<<<< HEAD
-    #Valor limite
-    
-    #Tipo de caracteres
-=======
     describe 'Tipos de caracteres', :field_tipos_carateres do
         before(:each) do
 
@@ -88,6 +76,5 @@ describe 'Verificação dos campos', :field_verification_filial do
             
         end
     end
->>>>>>> 71dd2774d53603702e022a9a515c7d98044a111d
     
 end
