@@ -5,6 +5,8 @@ require 'common\cadastros_empresas'
 common = Common.new
 obrigatorio = Obrigatorios.new
 cadas_emp = Cadastros.new
+
+
 describe 'Verificação dos campos', :field_verification_filial do
 
     describe 'Obrigatoriedades', :field_obrigatoriedade do
@@ -20,6 +22,7 @@ describe 'Verificação dos campos', :field_verification_filial do
 
             # Acessando o cadastro da empresa filial pela navegação de telas
             common.nav('Empresa','div[id="MenuFiliais"')
+
 
         
         end
@@ -72,8 +75,14 @@ describe 'Verificação dos campos', :field_verification_filial do
 
         it 'Valores Limites' do
 
-            cadas_emp.cadas_emp_filial_val_limites()
-            
+            # cadas_emp.cadas_emp_filial_val_limites()
+
+            # sleep 1
+
+            # common.remove_chat()
+
+            common.select_button('table[class="ContentTable"]','tr td[style=55%] text: "Teste valores limites"','img[class="pointer icons editIcon"]')
+        
         end
     end
     

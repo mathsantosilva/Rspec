@@ -21,7 +21,7 @@ describe 'Criando filiais com valores iguais', :filial_persistencia_all do
 
      find('label[class="pointer"]').click
 
-     fill_in 'Filial_Codigo', with: '1533'
+     fill_in 'Filial_Codigo', with: '999999999'
      fill_in 'Filial_Telefone', with: '999999999'
      fill_in 'Filial_Descricao', with: 'Empresa com codigo igual' + ' ' + $time.to_s
      fill_in 'Filial_CnpjCpf', with: $cnpj
