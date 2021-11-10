@@ -1,20 +1,25 @@
+require 'common\common'
+require 'common\complements'
+common = Common.new
+complements = Complements.new
+
 describe 'Cargos', :cargo_update do
   before(:each) do
-      visit '/'
-      #Aceitando os cookies
-      find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-      fill_in 'LogOnModel_UserName', with: $user_br
-      fill_in 'LogOnModel_Password', with: $senha
-      click_button 'Entrar'
-      # Acessando o cadastro cargos pela navegação de telas
-      selecionar = find('div[id="toggleUserDefinitions"]')
-      selecionar.hover
-      find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
-      find('div[id="MenuCargos"]').click
+    visit '/'
+    expect(page.title).to eql 'kairos'
+    # Realiza login
+    common.logon_br
+    # Acessando a tela de cargos pela navegacao de telas
+    common.nav('Empresa', 'div[id="MenuCargos"]')
+    # Carrega as variaveis utilizadas nas spec
+    complements.varcadastro
+    common.remove_chat
+    #  common.select_button('table[class="ContentTable"]','img[class="pointer icons editIcon"]')
+
   end
 
   it 'Alteração de cargo', :cargo_update_direto do
-    within('table tbody tr' , text: 'abcgdga') do
+    within('table tbody tr' , text: 'Kunze LLC') do
       selecionar = find('td[style="width: 270px; min-width: 280px;"]')
       selecionar.hover 
 
@@ -22,8 +27,8 @@ describe 'Cargos', :cargo_update do
     
     end
       
-    fill_in 'Cargo_Codigo', with: '101'
-    fill_in 'Cargo_Descricao', with: 'cargo alterado'
+    fill_in 'Cargo_Codigo', with: $codigo_aleatorio
+    fill_in 'Cargo_Descricao', with: $nome_empresa_aleatoria
     drop = find('label[class="pointer"]', text: 'Alterar') 
     drop.click
     

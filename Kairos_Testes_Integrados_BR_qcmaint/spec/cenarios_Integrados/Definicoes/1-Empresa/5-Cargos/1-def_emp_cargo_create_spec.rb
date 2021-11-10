@@ -18,7 +18,7 @@ describe 'Cargos', :cargo_create do
 
   it 'Inserir um novo cargo', :cargo_create_1 do
     fill_in 'Cargo_Codigo', with: $codigo_aleatorio
-    fill_in 'Cargo_Descricao', with: $nome_empresa_aleatoria
+    fill_in 'Cargo_Descricao', with: 'Kunze LLC'
 
     drop = find('.pointer', text: 'Adicionar', match: :first) # precisa manter o match para identificar o botão
     drop.click

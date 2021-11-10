@@ -5,7 +5,6 @@ describe 'empresa', :empresa_update do
   before(:each) do
     visit '/'
     expect(page.title).to eql 'kairos'
-jdhadjkhsaçkdlnsajkdnsakjdnjksan
     #Realiza login
     common.logon_br
     # Acessando a empresa pela navegação de telas

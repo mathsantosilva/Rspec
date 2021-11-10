@@ -1,22 +1,23 @@
-describe 'Cargos', :cargo_delete do
-    before(:each) do
-        visit '/'
-        #Aceitando os cookies
-        find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-        fill_in 'LogOnModel_UserName', with: $user_br
-        fill_in 'LogOnModel_Password', with: $senha
-        click_button 'Entrar'
-        # Acessando o cadastro cargos pela navegação de telas
-        selecionar = find('div[id="toggleUserDefinitions"]')
-        selecionar.hover
-        find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
-        find('div[id="MenuCargos"]').click
 
+describe 'Cargos', :cargo_delete do
+  require 'common\common'
+  common = Common.new
+  
+  before(:each) do
+    visit '/'
+    expect(page.title).to eql 'kairos'
+    # Realiza login
+    common.logon_br
+    # Acessando a tela de cargos pela navegacao de telas
+    common.nav('Empresa', 'div[id="MenuCargos"]')
+    # Carrega as variaveis utilizadas nas spec
+    common.remove_chat
+    #  common.select_button('table[class="ContentTable"]','img[class="pointer icons editIcon"]')
 
     end
   
-    it 'Alteração de cargo', :cargo_delete_direto do
-        within('table tbody tr' , text: 'abcgdga') do
+    it 'Alteração de cargo', :cargo_delete_d do
+        within('table tbody tr' , text: 'Kunze LLC') do
          selecionar = find('td[style="width: 270px; min-width: 280px;"]')
          selecionar.hover
          find('span[class="btnDeleteDeleteCargo pointer spanButton tooltip"]', text: 'Remover').click
