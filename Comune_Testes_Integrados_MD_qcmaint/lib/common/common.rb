@@ -1,9 +1,8 @@
-require 'faker'
-require 'cpf_cnpj'
+class Common
 
-class Components
-
+    #inclui a biblioteca Capybara para conseguir usar seus elementos dentros das classes e métodos
     include Capybara::DSL
+    include RSpec::Matchers
 
     #Realizando o login BR
     def logon_br()
@@ -42,9 +41,9 @@ class Components
     end
 
     #acessando botao dentro de um table
-    def select_button(elemento, caminho, value)
+    def select_button(elemento, cami, value)
         within(elemento) do
-            selecionar = find(:xpath, caminho)
+            selecionar = find(:xpath, cami)
             selecionar.hover
             find(value).click
         end
@@ -63,37 +62,8 @@ class Components
         page.execute_script(script_remove_chat)
     end
 
-
-    def botaosalvar 
-        drop = find("input[type=button][value='Salvar']", match: :first)
-        drop.click
+    def validando_css(value, css)
+        find(value).to have_css(css)
     end
+
 end
-
-
-
-# Classe para guardar complementos dos testes
-class Complements
-  def varcommon
-    $cnpj = CNPJ.generate
-    $cpf = CPF.generate
-    $time = Time.new
-  end
-
-  def varcadastro 
-    $codigo_aleatorio = Faker::Number.number(digits: 9)
-    $nome_aleatorio = Faker::Name.name
-    $email_aleatorio = Faker::Internet.email
-    $endereco_aleatorio = Faker::Address.full_address
-    $bairro_aleatorio = Faker::Address.secondary_address
-    $estado_aleatorio = Faker::Address.state
-    $cidade_aleatoria = Faker::Address.city
-    $pais_aleatorio = Faker::Address.country
-    $nome_empresa_aleatoria = Faker::Company.name
-    $chave_aleatoria = Faker::Crypto.md5
-    $url_aleatoria = Faker::Internet.url
-  end
-end
-
-
-

@@ -15,5 +15,5 @@ Funcionalidade: Criação de empresa
     Cenario: Criação de Subempresa com CPF
         Dado que acesso a tela de empresas
         Quando preencho os dados e uso cpf
-        E aperto no botão salvar
+        E clico no botão salvar
         Então devo receber uma mensagem "A Empresa foi criada com sucesso"

@@ -1,15 +1,23 @@
-Dado('que acesso a tela de empresas') do
-    # Realiza login
-    @components.logon_br
-    # Acessando a empresa pela navegacao de telas
-    @components.nav('Empresa', 'div[id="MenuEmpresas"]')
-    # Carrega as variaveis utilizadas nas spec
-    @complements.varcommon
-    @complements.varcadastro
+require 'common\common'
+require 'common\complements'
+common = Common.new
+complements = Complements.new
+# Teste
 
-end
-  
-  Quando('preencho os dados e uso cnpj') do
+describe 'Cadastro de empresa', :empresa_create do
+  before(:each) do
+    visit '/'
+    expect(page.title).to eql 'kairos'
+    # Realiza login
+    common.logon_br
+    # Acessando a empresa pela navegacao de telas
+    common.nav('Empresa', 'div[id="MenuEmpresas"]')
+    # Carrega as variaveis utilizadas nas spec
+    complements.varcommon
+    complements.varcadastro
+  end
+
+  it 'Criando com CNPJ' do
     # Entrando na criacao de empresa
     find('label[class="pointer"]').click
     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
@@ -35,17 +43,13 @@ end
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
+    drop = find("input[type=button][value='Salvar']", match: :first)
+    drop.click
+
+    expect(find('div[id=Summary-Field-Index]')).to have_content 'A Empresa foi criada com sucesso'
   end
-  
-  E('aperto no botão salvar') do
-    @components.botaosalvar
-  end
-  
-  Então('devo receber uma mensagem {string}') do |message|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message
-  end
-  
-  Quando('preencho os dados e uso cpf') do
+
+  it 'Criando com CPF' do
     # Entrando na criacao de empresa
     find('label[class="pointer"]').click
     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
@@ -71,12 +75,9 @@ end
     fill_in 'Empresa_DataPrevisaoProximoFechamento', with: '10052021'
     fill_in 'Empresa_DataLimiteTratamentoPonto', with: '10072021'
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
-  end
+    drop = find("input[type=button][value='Salvar']", match: :first)
+    drop.click
 
-
-  E ('clico no botão salvar') do
-    @components.botaosalvar
+    expect(find('div[id=Summary-Field-Index]')).to have_content 'A Empresa foi criada com sucesso'
   end
-  Então ('devo receber uma mensagem') do |message|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message
-  end
+end
