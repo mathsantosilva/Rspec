@@ -6,12 +6,11 @@ Dado('que acesso a tela de empresas') do
     # Carrega as variaveis utilizadas nas spec
     @complements.varcommon
     @complements.varcadastro
-
+    find('label[class="pointer"]').click
 end
   
   Quando('preencho os dados e uso cnpj') do
     # Entrando na criacao de empresa
-    find('label[class="pointer"]').click
     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
@@ -47,7 +46,6 @@ end
   
   Quando('preencho os dados e uso cpf') do
     # Entrando na criacao de empresa
-    find('label[class="pointer"]').click
     fill_in 'Empresa_Codigo', with: $codigo_aleatorio
     fill_in 'Empresa_CEI', with: '294226088484'
     fill_in 'Empresa_Telefone', with: '116541954654'
