@@ -41,9 +41,10 @@ class Common
     end
 
     #acessando botao dentro de um table
-    def select_button(elemento, caminho, value)
+    def select_button(elemento, xpath, texto, value)
         within(elemento) do
-            selecionar = find(caminho)
+            selecionar = find(:xpath, xpath, text: texto)
+            puts selecionar
             selecionar.hover
             find(value).click
         end
