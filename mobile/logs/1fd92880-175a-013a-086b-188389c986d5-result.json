@@ -1,0 +1,112 @@
+{
+    "name": "Checkbox",
+    "description": "Location - features/specs/inputs.feature:13",
+    "descriptionHtml": "Location - features/specs/inputs.feature:13",
+    "status": "broken",
+    "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "The element 'By.xpath: //android.widget.CheckBox[contains(@text, 'Ruby')]' is not linked to the same object in DOM anymore",
+        "trace": "io.appium.uiautomator2.common.exceptions.StaleElementReferenceException: The element 'By.xpath: //android.widget.CheckBox[contains(@text, 'Ruby')]' is not linked to the same object in DOM anymore\n\tat io.appium.uiautomator2.model.ElementsCache.restore(ElementsCache.java:122)\n\tat io.appium.uiautomator2.model.ElementsCache.get(ElementsCache.java:153)\n\tat io.appium.uiautomator2.handler.GetElementAttribute.safeHandle(GetElementAttribute.java:23)\n\tat io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:264)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:258)\n\tat io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:68)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)\n\tat io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)\n\tat io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)\n\tat io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)\n\tat io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)\n\tat java.lang.Thread.run(Thread.java:764)\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/response.rb:72:in `assert_ok'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/response.rb:34:in `initialize'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/common.rb:88:in `new'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/common.rb:88:in `create_response'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/http/default.rb:114:in `request'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/appium_lib_core-4.7.1/lib/appium_lib_core/common/base/http_default.rb:97:in `call'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/bridge.rb:167:in `execute'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/remote/w3c/bridge.rb:567:in `execute'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/appium_lib_core-4.7.1/lib/appium_lib_core/common/base/bridge/w3c.rb:128:in `element_attribute'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/selenium-webdriver-3.142.7/lib/selenium/webdriver/common/element.rb:116:in `attribute'\nC:/Ruby30-x64/lib/ruby/gems/3.0.0/gems/appium_lib_core-4.7.1/lib/appium_lib_core/patch.rb:52:in `method_missing'\nC:/qaninja/twp-cucumber-ruby-mobile/features/steps/inputs_steps.rb:30:in `nil'\nfeatures/specs/inputs.feature:17:in `esta op\u00e7\u00e3o deve estar marcada'"
+    },
+    "stage": "finished",
+    "steps": [
+        {
+            "name": "Dado que acesso a tela Checkbox",
+            "status": "passed",
+            "statusDetails": {
+                "known": false,
+                "muted": false,
+                "flaky": false
+            },
+            "stage": "finished",
+            "steps": [],
+            "attachments": [],
+            "start": 1635122468081,
+            "stop": 1635122471797
+        },
+        {
+            "name": "Quando eu marco a op\u00e7\u00e3o Ruby",
+            "status": "passed",
+            "statusDetails": {
+                "known": false,
+                "muted": false,
+                "flaky": false
+            },
+            "stage": "finished",
+            "steps": [],
+            "attachments": [],
+            "start": 1635122471797,
+            "stop": 1635122472840
+        },
+        {
+            "name": "Ent\u00e3o esta op\u00e7\u00e3o deve estar marcada",
+            "status": "failed",
+            "statusDetails": {
+                "known": false,
+                "muted": false,
+                "flaky": false
+            },
+            "stage": "finished",
+            "steps": [],
+            "attachments": [],
+            "start": 1635122472840,
+            "stop": 1635122473918
+        }
+    ],
+    "attachments": [],
+    "uuid": "1fd92880-175a-013a-086b-188389c986d5",
+    "historyId": "10fb49416e45c0cf2c7a2207f8efb2c1",
+    "fullName": "Checkbox",
+    "labels": [
+        {
+            "name": "framework",
+            "value": "cucumber"
+        },
+        {
+            "name": "package",
+            "value": "specs"
+        },
+        {
+            "name": "testClass",
+            "value": "inputs"
+        },
+        {
+            "name": "suite",
+            "value": "Inputs"
+        },
+        {
+            "name": "severity",
+            "value": "normal"
+        },
+        {
+            "name": "epic",
+            "value": "specs"
+        },
+        {
+            "name": "feature",
+            "value": "Inputs"
+        },
+        {
+            "name": "tag",
+            "value": "checkbox"
+        },
+        {
+            "name": "thread",
+            "value": 52320
+        },
+        {
+            "name": "host",
+            "value": "DESKTOP-66GP7M7"
+        },
+        {
+            "name": "language",
+            "value": "ruby"
+        }
+    ],
+    "links": [],
+    "parameters": [],
+    "start": 1635122449803,
+    "stop": 1635122475634
+}

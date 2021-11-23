@@ -1,0 +1,48 @@
+{
+    "uuid": "1fd916e0-175a-013a-086b-188389c986d5",
+    "name": "Checkbox",
+    "children": [
+        "1fd92880-175a-013a-086b-188389c986d5"
+    ],
+    "befores": [
+        {
+            "name": "Before hook (hooks.rb:1)",
+            "status": "passed",
+            "statusDetails": {
+                "known": false,
+                "muted": false,
+                "flaky": false
+            },
+            "stage": "finished",
+            "steps": [],
+            "attachments": [],
+            "start": 1635122449804,
+            "stop": 1635122468081
+        }
+    ],
+    "afters": [
+        {
+            "name": "After hook (hooks.rb:14)",
+            "status": "passed",
+            "statusDetails": {
+                "known": false,
+                "muted": false,
+                "flaky": false
+            },
+            "stage": "finished",
+            "steps": [],
+            "attachments": [
+                {
+                    "name": "screenshot",
+                    "type": "image/png",
+                    "source": "2e867e70-175a-013a-086b-188389c986d5-attachment.png"
+                }
+            ],
+            "start": 1635122473918,
+            "stop": 1635122475631
+        }
+    ],
+    "links": [],
+    "start": 1635122449803,
+    "stop": 1635122475638
+}
