@@ -13,6 +13,7 @@ gem 'rails'
 gem 'ffi'
 gem 'rspec'
 gem 'selenium-webdriver'
+gem  'webdrivers' ,  '~> 5.0'
 gem 'watir-scroll'
 
 group :development do

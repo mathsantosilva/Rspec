@@ -5,11 +5,12 @@ describe 'empresa', :empresa_update do
   before(:each) do
     visit '/'
     expect(page.title).to eql 'kairos'
+jdhadjkhsaçkdlnsajkdnsakjdnjksan
     #Realiza login
     common.logon_br
     # Acessando a empresa pela navegação de telas
-    common.nav('Empresa', 'div[id="MenuEmpresas"]')
-    common.select_button('table[class="ContentTable"]','img[class="pointer icons editIcon"]')
+    common.nav('Empresa')
+    common.select_button('table tbody tr', 'Empresa Br - Automação de testes - 17-08-2021 - 1101')
 
   end
 
