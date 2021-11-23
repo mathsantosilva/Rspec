@@ -79,10 +79,18 @@ describe 'Verificação dos campos', :field_verification_filial do
 
             # sleep 1
 
-            # common.remove_chat()
+            common.remove_chat()
 
-            common.select_button('table[class="ContentTable"]','tr td[style=55%] text: "Teste valores limites"','img[class="pointer icons editIcon"]')
-        
+            # sleep 1
+
+            within('table[class="ContentTable"') do
+                selecionar = find(:xpath, '/html/body/div[1]/div[3]/table/tbody/tr', text: 'Teste valores limites')
+                selecionar.hover
+                find('span[class="pointer spanButton"]').click
+            end
+
+            obrigatorio.verificacao_campos_filiais()
+
         end
     end
     

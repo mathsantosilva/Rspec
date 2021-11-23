@@ -45,4 +45,17 @@ class Obrigatorios
 
     end
 
+    def verificacao_campos_filiais()
+
+        expect(find('#Filial_Telefone').value).to eql('11111111111111111111')
+        expect(find('#Filial_Cidade').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        expect(find('#Filial_Bairro').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        expect(find('#Filial_UF').value).to eql('xx')
+        expect(find('#Filial_Pais').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        expect(find('#Filial_URL').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        expect(find('#Filial_Email').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.com')
+        expect(find('#ConnectChave_ChaveConnect').value).to eql('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+
+    end
+
 end
