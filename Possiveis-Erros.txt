@@ -1,0 +1,5 @@
+Erro: Unable to load the EventMachine C extension; To use the pure-ruby reactor, require 'em/pure_ruby'
+Rodar os seguintes comandos:
+1 - gem uninstall eventmachine
+	A - Se for pedido opção, escolher a 3
+2 - gem install eventmachine --platform ruby

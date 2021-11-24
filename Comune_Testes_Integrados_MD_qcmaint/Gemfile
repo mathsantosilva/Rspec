@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+gem 'cucumber-rails'
+gem 'allure-cucumber'
+gem 'appium_lib'
+gem 'capybara'
+gem 'cpf_cnpj'
+gem 'cucumber'
+gem 'rails'
+gem 'ffi'
+gem 'rspec'
+gem 'selenium-webdriver'
+gem 'watir-scroll'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
