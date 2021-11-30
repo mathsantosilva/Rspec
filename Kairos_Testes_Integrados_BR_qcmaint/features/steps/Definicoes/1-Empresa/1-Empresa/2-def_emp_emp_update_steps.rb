@@ -40,8 +40,8 @@ Quando('for salvar o cadastro') do
     drop.click
 end
 
-Então('ira demonstrar a mensagem {message}') do |message|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message
+Então('ira demonstrar a mensagem ') do |message_success|
+    expect(find('div[id=Summary-Field-Index]')).to have_content message_success
 end
 
 Dado('que acesso a empresa criada com cpf') do

@@ -40,8 +40,8 @@ end
     @components.botaosalvar
   end
   
-  Então('devo receber uma mensagem {string}') do |message|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message
+  Então('devo receber uma mensagem') do |message_success|
+    expect(find('div[id=Summary-Field-Index]')).to have_content message_success
   end
   
   Quando('preencho os dados e uso cpf') do
@@ -75,6 +75,6 @@ end
   E ('clico no botão salvar') do
     @components.botaosalvar
   end
-  Então ('devo receber uma mensagem') do |message|
-    expect(find('div[id=Summary-Field-Index]')).to have_content message
+  Então ('devo receber uma mensagem') do |message_success|
+    expect(find('div[id=Summary-Field-Index]')).to have_content message_success
   end
