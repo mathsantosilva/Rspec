@@ -1,5 +1,7 @@
-class Login 
+class Login
+
     include Capybara::DSL
+    include RSpec::Matchers
 
     def logar(user, password)
         fill_in 'LogOnModel_UserName', with: user
@@ -7,4 +9,32 @@ class Login
         click_button 'Entrar'
     end
 
+
+    #Realizando o login BR
+    def logon_br()
+        fill_in 'LogOnModel_UserName', with: $user_br
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login mx
+    def logon_mx()
+        fill_in 'LogOnModel_UserName', with: $user_mx
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login pt
+    def logon_pt()
+        fill_in 'LogOnModel_UserName', with: $user_pt
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
+
+    #Realizando o login en
+    def logon_en()
+        fill_in 'LogOnModel_UserName', with: $user_en
+        fill_in 'LogOnModel_Password', with: $senha
+        click_button 'Entrar'
+    end
 end

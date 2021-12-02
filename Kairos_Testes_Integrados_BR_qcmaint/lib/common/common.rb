@@ -4,34 +4,6 @@ class Common
     include Capybara::DSL
     include RSpec::Matchers
 
-    #Realizando o login BR
-    def logon_br()
-        fill_in 'LogOnModel_UserName', with: $user_br
-        fill_in 'LogOnModel_Password', with: $senha
-        click_button 'Entrar'
-    end
-
-    #Realizando o login mx
-    def logon_mx()
-        fill_in 'LogOnModel_UserName', with: $user_mx
-        fill_in 'LogOnModel_Password', with: $senha
-        click_button 'Entrar'
-    end
-
-    #Realizando o login pt
-    def logon_pt()
-        fill_in 'LogOnModel_UserName', with: $user_pt
-        fill_in 'LogOnModel_Password', with: $senha
-        click_button 'Entrar'
-    end
-
-    #Realizando o login en
-    def logon_en()
-        fill_in 'LogOnModel_UserName', with: $user_en
-        fill_in 'LogOnModel_Password', with: $senha
-        click_button 'Entrar'
-    end
-
     #executando a navegacao das paginas
     def nav(text, value)
         selecionar = find('div[id="toggleUserDefinitions"]')
@@ -65,6 +37,11 @@ class Common
 
     def validando_css(value, css)
         find(value).to have_css(css)
+    end
+
+    def botaosalvar 
+        drop = find("input[type=button][value='Salvar']", match: :first)
+        drop.click
     end
 
 end

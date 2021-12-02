@@ -8,5 +8,5 @@ Funcionalidade: Criação de filiais
 
         Dado Acesso a tela de filiais
         Quando Cadastrando uma nova filial
-        E Apertando no botão salvar
+        Quando Apertando no botão salvar
         Então Aguardo uma mensagem de confirmação "A Filial foi criada com sucesso"

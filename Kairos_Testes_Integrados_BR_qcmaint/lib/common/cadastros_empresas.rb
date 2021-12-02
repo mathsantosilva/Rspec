@@ -37,11 +37,11 @@ class Cadastros
         fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria
 
-        drop = find("input[type=submit][value='Salvar']", match: :first)
-        drop.click
-        sleep 2
+        # drop = find("input[type=submit][value='Salvar']", match: :first)
+        # drop.click
+        # sleep 2
 
-        expect(find('div[class=validation-summary-ok]')).to have_content 'A Filial foi criada com sucesso'
+        # expect(find('div[class=validation-summary-ok]')).to have_content 'A Filial foi criada com sucesso'
 
     end
 

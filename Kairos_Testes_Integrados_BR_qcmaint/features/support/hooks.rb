@@ -13,13 +13,14 @@ Before do
   $user_en = 'teste75624@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
-  visit 'http://www.dimepkairos.com.br/'
+  visit 'http://qcmaint.dimepkairos.com.br/'
 
   # Instanciando as Classes 
-  @components = Components.new
+  
+  @login = Login.new
+  @common = Common.new
   @complements = Complements.new
   @cadastros = Cadastros.new
-  @login = Login.new
 
   
 end
