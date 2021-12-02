@@ -18,6 +18,7 @@ Before do
   # Instanciando as Classes 
   @components = Components.new
   @complements = Complements.new
+  @cadastros = Cadastros.new
 
   
 end
