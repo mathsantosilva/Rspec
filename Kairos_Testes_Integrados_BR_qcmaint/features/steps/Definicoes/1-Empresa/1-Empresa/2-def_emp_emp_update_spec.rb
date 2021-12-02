@@ -9,7 +9,7 @@ describe 'empresa', :empresa_update do
     common.logon_br
     # Acessando a empresa pela navegação de telas
     common.nav('Empresa')
-    common.select_button('table tbody tr', 'Empresa Br - Automação de testes - 17-08-2021 - 1101')
+    common.select_button('table tbody tr', '')
 
   end
 
