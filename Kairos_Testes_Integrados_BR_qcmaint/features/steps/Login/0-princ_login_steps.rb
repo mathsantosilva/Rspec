@@ -1,55 +1,62 @@
 Dado('que acesso a tela de Login') do
     #acessando a tela de login kairos
-end
-
-Quando('insiro os dados de email e senha corretos') do |table|
+  end
+  
+  Quando('insiro os dados de email e senha corretos') do |table|
     user = table.rows_hash
     @login.logar(user[:email], user[:senha])
-end
-
-Então('deverá logar com sucesso') do
-    expect(page).to have_current_path('https://www.dimepkairos.com.br/Dimep/Dashboard')
-end
-
-Quando('insiro os dados de email e senha incorretos') do |table|
+  end
+  
+  Então('deverá logar com sucesso na empresa') do
+    expect(page).to have_current_path(@page + @ambiente + '/Dashboard')
+  end
+  
+  Quando('insiro os dados de email e senha incorretos') do |table|
     user = table.rows_hash
     @login.logar(user[:email], user[:senha])
-end
-
-Então('devera informar a mensagem ') do |message_success|
+  end
+  
+  Então('devera informar a mensagem {string}') do |message_success|
     expect(find('span[style="display:inline-block;"]')).to have_content message_success
-end
-
-
-Quando('insiro os dados de email incorreto e senha') do |table|
+  end
+  
+  Quando('insiro os dados de email incorreto e senha') do |table|
     user = table.rows_hash
     @login.logar(user[:email], user[:senha])
-end
+  end
 
-Então('devera informar a mensagem') do |message_success|
+  Então('devera apresentar a mensagem {string}') do |message_success|
     expect(find('span[style="display:inline-block;"]')).to have_content message_success
-end
-
-E ('acesso a tela de alteração de senha') do
-    find('a[style="font-size: 0.9em;"]', text: "Alterar a senha").click
-end
-
-E ('Insiro os dados atuais de login e senha ') do |table|
-    user = table.rows_hash
-    @login.logar(user[:email], user[:senha])
+  end
+  
+  Quando('acesso a tela de alteração de senha') do
+   
     within('div[class="links-acesso"]') do
-    sleep 10
-    find('a[style="font-size: 0.9em;"]', text: "Alterar a senha", visible: false).click
+      find('a[href="/Dimep/Account/Mudar"]', text: "Alterar a senha", visible: false).click  
     end
-    fill_in 'Username', with: user[:email]
-    fill_in 'Password', with: user[:senha]
-    fill_in 'NewPassword', with: '2'
-    fill_in 'RepeatNewPassword', with: '2'
-    find('input[class="Pointer submitLogin"]').click
-end
+  end
+  
+  Quando('Insiro os dados atuais de login e senha') do |table|
 
-Quando('insiro os dados de email e nova senha') do |table|
+    user = table.rows_hash
+    fill_in 'Username', with: user[:email], visible: false
+    fill_in 'Password', with: user[:senha], visible: false
+    fill_in 'NewPassword', with: '2', visible: false
+    fill_in 'RepeatNewPassword', with: '2', visible: false
+    find('input[class="Pointer submitLogin"]', visible: false).click
+    print('validar')
+    expect(find('div[class="validation-summary-ok"]')).to have_content 'Senha alterada com sucesso.'
+    within('div[class="RecoverPassword"]') do
+      find('a[href="/Dimep/Account/LogOn"]', text: "Iniciar sessão »", visible: false).click  
+    end
+    print('Clicou')
+  end
+  
+  Quando('insiro os dados de email e nova senha') do |table|
     user = table.rows_hash
     @login.logar(user[:email], user[:senha])
-end
-
+  end
+  
+  Então('deverá logar com sucesso com a senha nova') do
+    expect(page).to have_current_path(@page + @ambiente + '/Dashboard')
+  end

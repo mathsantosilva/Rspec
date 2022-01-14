@@ -1,11 +1,21 @@
 Dado('que acesso a empresa criada com cnpj') do
-    visit '/'
     expect(page.title).to eql 'kairos'
     #Realiza login
-    @components.logon_br
+    @login.logon_br
     # Acessando a empresa pela navegação de telas
-    @components.nav('Empresa', 'div[id="MenuEmpresas"]')
-    @components.select_button('table tbody tr', 'img[class="pointer icons editIcon"]')
+    sleep 5
+    @common.nav('Empresa', 'div[id="MenuEmpresas"]')
+    sleep 5
+    @common.select_button('table tbody tr', '/html/body/div[1]/div[3]/table/tbody/tr[1]/td[1]', '516322', 'span[class="spanButtonText"]')
+    within('table tbody tr') do
+        selecionar = find(:xpath, '/html/body/div[1]/div[3]/table/tbody/tr[1]/td[1]', text: '516322')
+        puts selecionar
+        selecionar.hover
+        find('span[class="spanButtonText"]').click
+    end
+    
+    sleep 10
+    print('passou')
 end
 
 Dado('altero os dados da empresa') do

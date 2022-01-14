@@ -5,7 +5,6 @@ Funcionalidade: Criação de empresa
 
     @empresa_create_cnpj
     Cenario: Criação de Subempresa com CNPJ
-
         Dado que acesso a tela de empresas
         Quando preencho os dados e uso cnpj
         E aperto no botão salvar

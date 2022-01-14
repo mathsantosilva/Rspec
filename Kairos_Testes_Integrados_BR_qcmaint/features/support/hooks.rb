@@ -13,7 +13,10 @@ Before do
   $user_en = 'teste75624@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
-  visit 'http://qcmaint.dimepkairos.com.br/'
+  @page = 'https://qcmaint.dimepkairos.com.br/'
+  @ambiente = 'Dimep'
+  visit @page
+
 
   # Instanciando as Classes 
   
