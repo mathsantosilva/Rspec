@@ -1,8 +1,8 @@
 Dado('que acesso a tela de empresas') do
     # Realiza login
-    @components.logon_br
+    @login.logon_br
     # Acessando a empresa pela navegacao de telas
-    @components.nav('Empresa', 'div[id="MenuEmpresas"]')
+    @common.nav('Empresa', 'div[id="MenuEmpresas"]')
     # Carrega as variaveis utilizadas nas spec
     @complements.varcommon
     @complements.varcadastro
@@ -36,13 +36,14 @@ end
     fill_in 'connectChave_ChaveConnect', with: $chave_aleatoria
   end
   
-  E('aperto no botão salvar') do
-    @components.botaosalvar
+  Quando('aperto no botão salvar') do
+    @common.botaosalvar
   end
   
-  Então('devo receber uma mensagem') do |message_success|
+  Então('deverá apresentar uma mensagem {string}') do |message_success|
     expect(find('div[id=Summary-Field-Index]')).to have_content message_success
   end
+  
   
   Quando('preencho os dados e uso cpf') do
     # Entrando na criacao de empresa
@@ -72,9 +73,10 @@ end
   end
 
 
-  E ('clico no botão salvar') do
-    @components.botaosalvar
+  Quando('clico no botão salvar') do
+    @common.botaosalvar
   end
-  Então ('devo receber uma mensagem') do |message_success|
+
+  Então('devo receber uma mensagem {string}') do |message_success|
     expect(find('div[id=Summary-Field-Index]')).to have_content message_success
   end

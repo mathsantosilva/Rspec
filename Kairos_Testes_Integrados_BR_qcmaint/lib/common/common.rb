@@ -13,13 +13,11 @@ class Common
     end
 
     #acessando botao dentro de um table
-    def select_button(elemento, xpath, texto, value)
-        within(elemento) do
-            selecionar = find(:xpath, xpath, text: texto)
-            puts selecionar
-            selecionar.hover
-            find(value).click
-        end
+    def select_button(elemento, button)
+        @buscar = find(elemento)
+        @buscar.hover
+        find(button).click
+  
     end
 
     #acessando botao confirmação remover
