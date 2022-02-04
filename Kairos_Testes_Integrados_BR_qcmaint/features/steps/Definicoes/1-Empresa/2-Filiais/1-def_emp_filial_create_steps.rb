@@ -6,14 +6,11 @@ Dado('Acesso a tela de filiais') do
   #Acessando o cadastro da empresa filial pela navegação de telas
   @common.nav('Empresa','div[id="MenuFiliais"')
 
-  @complements.varcommon
-  @complements.varcadastro
-
 end
 
 Quando('Cadastrando uma nova filial') do
 
-    @cadastros.cadas_emp_filial()
+  @cadastros.cadas_emp_filial()
 
 end
 

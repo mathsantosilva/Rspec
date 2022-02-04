@@ -16,7 +16,6 @@ class Common
     def select_button(elemento, xpath, texto, value)
         within(elemento) do
             selecionar = find(:xpath, xpath, text: texto)
-            puts selecionar
             selecionar.hover
             find(value).click
         end

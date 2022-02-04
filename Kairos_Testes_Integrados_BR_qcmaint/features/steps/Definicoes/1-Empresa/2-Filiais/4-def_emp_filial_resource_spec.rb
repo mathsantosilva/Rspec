@@ -1,43 +1,41 @@
-describe 'Resource filial', :filial_resource do
-    before(:each) do
-      visit '/'
+Dado ('Acesso a tela de Filiais') do
+    
+  #Logando
+  @login.logon_br
+  
+  #Acessando o cadastro da empresa filial pela navegação de telas
+  @common.nav('Empresa','div[id="MenuFiliais"')
 
-      find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-      sleep 1
-  
-      common.logon_br
-  
-      # Acessando o cadastro da empresa filial pela navegação de telas
-      common.nav('Empresa','div[id="MenuFiliais"')
-  
-    end
+end
 
 
-    it 'Validando os resources', :resource_criacao_filial do
-        #acessar a criação de filiais
-        find('label[class="pointer"]').click
+Quando ('Acesso o cadastro') do
+
+  #acessar a criação de filiais
+  find('label[class="pointer"]').click
+
+end
         
+Então ('Verifico os resources') do
     
-        expect(page).to have_content 'Código:'
-        expect(page).to have_content 'Telefone:'
-        expect(page).to have_content 'Razão social:'
-        expect(page).to have_content 'CNPJ/CPF:'
-        expect(page).to have_content 'Endereço:'
-        expect(page).to have_content 'Bairro:'
-        expect(page).to have_content 'Cidade:'
-        expect(page).to have_content 'UF:'
-        expect(page).to have_content 'País:'
-        expect(page).to have_content 'URL:'
-        expect(page).to have_content 'Email:'
-        expect(page).to have_content 'Fuso horário:'
-        expect(page).to have_content 'Horário de verão:'
-        expect(page).to have_content 'Início horário de verão:'
-        expect(page).to have_content 'Fim horário de verão:'
-        expect(page).to have_content 'Data de Previsão do Próximo Fechamento:'
-        expect(page).to have_content 'Data Limite para Tratamento de Ponto:' 
-        expect(page).to have_content 'Localização:'
-    
-      end 
+  expect(page).to have_content 'Código:'
+  expect(page).to have_content 'Telefone:'
+  expect(page).to have_content 'Razão social:'
+  expect(page).to have_content 'CNPJ/CPF:'
+  expect(page).to have_content 'Endereço:'
+  expect(page).to have_content 'Bairro:'
+  expect(page).to have_content 'Cidade:'
+  expect(page).to have_content 'UF:'
+  expect(page).to have_content 'País:'
+  expect(page).to have_content 'URL:'
+  expect(page).to have_content 'Email:'
+  expect(page).to have_content 'Fuso horário:'
+  expect(page).to have_content 'Horário de verão:'
+  expect(page).to have_content 'Início horário de verão:'
+  expect(page).to have_content 'Fim horário de verão:'
+  expect(page).to have_content 'Data de Previsão do Próximo Fechamento:'
+  expect(page).to have_content 'Data Limite para Tratamento de Ponto:'
+  expect(page).to have_content 'Chave do Kairos Connect :'
 
 end
 
