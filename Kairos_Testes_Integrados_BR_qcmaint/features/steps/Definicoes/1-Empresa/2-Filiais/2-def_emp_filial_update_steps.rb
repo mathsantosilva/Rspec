@@ -1,7 +1,9 @@
-Dado("Acesso a tela de filiais e clico para alterar") do
+Dado('Acesso a tela de filiais e clico para alterar') do
 
   #Logando
   @login.logon_br
+
+  sleep 1
   
   #Acessando o cadastro da empresa filial pela navegação de telas
   @common.nav('Empresa','div[id="MenuFiliais"')
@@ -9,7 +11,7 @@ Dado("Acesso a tela de filiais e clico para alterar") do
   #Removendo o chat
   @common.remove_chat()
 
-  sleep 3
+  sleep 1
 
 end
 
@@ -17,22 +19,24 @@ end
 Quando('Realizo a alteração da filial') do
 
   #Selecionando o botão alterar
-  @common.select_button('table[class="ContentTable"]','tbody/tr/td/td','Halvorson LLC 2021-12-02 11:33:45 -0300','img[class="pointer icons editIcon"]')
+  @common.select_button('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)','img[class="pointer icons editIcon"]')
   
+  #Alterando as informações da filial
   @cadastros.alter_emp_filial()
 
 end
     
-Quando("Aperto no botão salvar") do
+Quando('Aperto no botão salvar') do
 
-  drop = find("input[type=submit][value='Salvar']", match: :first)
-  drop.click
+  #Clicando no botão para salvar a alteração da filial
+  @common.botaosalvar
   sleep 2
     
 end
 
-Então('Aguardo uma mensagem de confirmação {string}') do |message_sucess|
+Então('Aguardo uma mensagem de alteração {string}') do |message_sucess|
 
-  expect(find('div[class=validation-summary-ok]')).to have_content message_sucess
+  #Mensagem de que filial foi alterada com sucesso
+  expect(find('div[id=Summary-Field-Index]')).to have_content message_sucess
     
 end

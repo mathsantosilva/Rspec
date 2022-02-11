@@ -1,7 +1,9 @@
-Dado ('Acesso a tela de Filiais') do
+Dado ('Acesso a tela de Filiais para verficar os resources') do
     
   #Logando
   @login.logon_br
+
+  sleep 1
   
   #Acessando o cadastro da empresa filial pela navegação de telas
   @common.nav('Empresa','div[id="MenuFiliais"')

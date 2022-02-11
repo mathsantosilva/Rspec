@@ -28,12 +28,12 @@ class Cadastros
         fill_in 'Filial_Pais', with: $pais_aleatorio
         fill_in 'Filial_URL', with: 'http://filial.com.br'
         fill_in 'Filial_Email', with: $email_aleatorio
-        select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+        select('UTC -3', from: 'Filial_FusoHorario_Id').select_option
         find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
-        fill_in 'Filial.InicioHorarioVerao', with: '10062021'
-        fill_in 'Filial_FimHorarioVerao', with: '11092021'
+        # fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+        # fill_in 'Filial_FimHorarioVerao', with: '11092021'
         fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
-        fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+        fill_in 'Filial_DataLimiteTratamentoPonto', with: '10042021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria
 
     end
@@ -58,7 +58,7 @@ class Cadastros
         find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
         fill_in 'Filial.InicioHorarioVerao', with: '10062021'
         fill_in 'Filial_FimHorarioVerao', with: '11092021'
-        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '11032021'
         fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria
 
