@@ -7,11 +7,11 @@ class Cadastros
     include Capybara::DSL
     include RSpec::Matchers
 
-    complements = Complements.new
-    common = Common.new
+    @complements = Complements.new
+    @common = Common.new
 
-    complements.varcommon
-    complements.varcadastro
+    @complements.varcommon
+    @complements.varcadastro
 
 
     #Alterando empresas filiais
@@ -92,21 +92,17 @@ class Cadastros
         drop.click
         sleep 2
 
-        expect(page.assert_selector('input.input-validation-error', count: 2))
+        expect(page.assert_selector('input.input-validation-error', count: 4))
 
         expect(page).to have_content 'Por favor adicione um código'
+        expect(page).to have_content 'Por favor introduza um telefone'
+        expect(page).to have_content 'Por favor introduza um CNPJ/CPF'
         expect(page).to have_content 'Email inválido'
 
         fill_in 'Filial_Codigo', with: $codigo_aleatorio
-        fill_in 'Filial_Email', with: $email_aleatorio
-
-        drop = find("input[type=submit][value='Salvar']", match: :first)
-        drop.click
-
-        expect(find('div[class=field-validation-error]')).to have_content 'CNPJ/CPF inválido'
-
-
+        fill_in 'Filial_Telefone', with: '999999999'
         fill_in 'Filial_CnpjCpf', with: $cnpj
+        fill_in 'Filial_Email', with: $email_aleatorio
 
         drop = find("input[type=submit][value='Salvar']", match: :first)
         drop.click

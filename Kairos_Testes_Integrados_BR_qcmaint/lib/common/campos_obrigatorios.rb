@@ -28,9 +28,9 @@ class Obrigatorios
     #Campos obrigatórios na criação de filiais
     def camp_obrig_filiais()
 
-        find('label[class="pointer"]').click
-        drop = find("input[type=submit][value='Salvar']", match: :first)
-        drop.click
+        # find('label[class="pointer"]').click
+        # drop = find("input[type=submit][value='Salvar']", match: :first)
+        # drop.click
         
         expect(page.assert_selector('input.input-validation-error', count: 8))
 

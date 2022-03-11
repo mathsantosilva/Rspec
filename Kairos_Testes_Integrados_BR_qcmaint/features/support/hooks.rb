@@ -3,7 +3,9 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'faker'
 require 'cpf_cnpj'
-require  'webdrivers' 
+require 'webdrivers'
+require 'common\cadastros_empresas'
+require 'common\campos_obrigatorios'
 
 Before do
 
@@ -24,6 +26,7 @@ Before do
   @common = Common.new
   @complements = Complements.new
   @cadastros = Cadastros.new
+  @obrigatorio = Obrigatorios.new
 
   
 end
