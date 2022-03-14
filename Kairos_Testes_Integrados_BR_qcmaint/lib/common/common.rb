@@ -20,11 +20,9 @@ class Common
   
     end
 
-    #acessando botao confirmação remover
+    #Clicando no botao para confirmar a remoção da filial
     def confir_remover()
-        within('div div div', text: 'Remover') do
-            find('span[class="PlusButton pointer"]').click
-        end
+        find('span[class="PlusButton pointer"]', text: 'Remover').click
     end
 
     #Removendo Chat da tela
@@ -37,8 +35,15 @@ class Common
         find(value).to have_css(css)
     end
 
+    #Clicando no botão salvar
     def botaosalvar 
-        drop = find("input[type=button][value='Salvar']", match: :first)
+        drop = find("input[type=submit][value='Salvar']", match: :first)
+        drop.click
+    end
+
+    #Clicando no botão cancelar
+    def botaocancelar
+        drop = find("input[type=button][value='Cancelar']", match: :first)
         drop.click
     end
 

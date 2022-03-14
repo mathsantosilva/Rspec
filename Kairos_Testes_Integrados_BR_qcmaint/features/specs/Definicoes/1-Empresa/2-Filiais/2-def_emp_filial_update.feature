@@ -9,4 +9,4 @@ Funcionalidade: Alteração de filiais
         Dado Acesso a tela de filiais e clico para alterar
         Quando Realizo a alteração da filial
         Quando Aperto no botão salvar
-        Então Aguardo uma mensagem de confirmação "Filial editada com sucesso"
+        Então Aguardo uma mensagem de alteração "Filial editada com sucesso"

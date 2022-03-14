@@ -1,81 +1,75 @@
-require 'common\common'
-require 'common\campos_obrigatorios'
-require 'common\cadastros_empresas'
+Dado 'Logo no sistema' do
 
-common = Common.new
-obrigatorio = Obrigatorios.new
-cadas_emp = Cadastros.new
+    #Acessando a empresa filial pela navegação de telas
+    @login.logon_br
 
-describe 'Verificação dos campos', :field_verification_filial do
+end
 
-    describe 'Obrigatoriedades', :field_obrigatoriedade do
-        before(:each) do
+Quando 'Acesso a tela de filiais e clico em nova filial' do
 
-            visit '/'
+    #Acessando o cadastro da empresa filial pela navegação de telas
+    @common.nav('Empresa','div[id="MenuFiliais"')
 
-            find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-            sleep 1
+    #Clico em nova filial
+    find('label[class="pointer"]').click
 
-            # Acessando a empresa filial pela navegação de telas
-            common.logon_br
+end
 
-            # Acessando o cadastro da empresa filial pela navegação de telas
-            common.nav('Empresa','div[id="MenuFiliais"')
+Quando 'Clico no botão para salvar' do
 
-        
-        end
+    #clicando para salvar
+    @common.botaosalvar
 
-        it 'Campos Obrigatorios Filial' do
+end
 
-            obrigatorio.camp_obrig_filiais()
 
-        end
-    end
+Então 'Verifico os campos obrigatorios para cadastro' do
 
-    describe 'Tipos de caracteres', :field_tipos_carateres do
-        before(:each) do
+    @obrigatorio.camp_obrig_filiais()
 
-            visit '/'
+end
 
-            find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-            sleep 1
 
-            # Acessando a empresa filial pela navegação de telas
-            common.logon_br
 
-            # Acessando o cadastro da empresa filial pela navegação de telas
-            common.nav('Empresa','div[id="MenuFiliais"')
-        
-        end
+Quando 'Navego até a tela de filiais' do
 
-        it 'Tipos de caracteres' do
+    #Acessando o cadastro da empresa filial pela navegação de telas
+    @common.nav('Empresa','div[id="MenuFiliais"')
 
-            cadas_emp.cadas_emp_filial_especiais()
-            
-        end
-    end
+end
 
-    describe 'Valores limites', :field_valores_limites do
-        before(:each) do
+Quando 'Preencho os campos com o maximo de caracteres permitidos e clico para salvar' do
 
-            visit '/'
+    @cadastros.cadas_emp_filial_val_limites()
 
-            find('div[class="cc-compliance"]', text: 'Aceitar e fechar').click
-            sleep 1
+end
 
-            # Acessando a empresa filial pela navegação de telas
-            common.logon_br
+Então 'Clico para alterar e verifico se foi cadastrada a quantidade correta de caracteres' do
 
-            # Acessando o cadastro da empresa filial pela navegação de telas
-            common.nav('Empresa','div[id="MenuFiliais"')
-        
-        end
+    @common.select_button('body > div.ZonaConteudo > div.Conteudo > table > tbody > tr:nth-child(1) > td:nth-child(1)','img[class="pointer icons editIcon"]')
 
-        it 'Valores Limites' do
+    @obrigatorio.verificacao_campos_filiais()
 
-            cadas_emp.cadas_emp_filial_val_limites()
-            
-        end
-    end
-    
+end
+
+
+
+Quando 'Vou até a tela de filiais' do
+
+    #Acessando o cadastro da empresa filial pela navegação de telas
+    @common.nav('Empresa','div[id="MenuFiliais"')
+
+end
+
+Quando 'Preencho os campos com caracteres especiais , aguardo mensagens de erro e preencho os campos corretamente' do
+
+    @cadastros.cadas_emp_filial_especiais()
+
+end
+
+Então 'Espero uma mensagem de confirmação {string}' do |message_sucess|
+
+  #Mensagem de confirmação de cadastro de filial
+  expect(find('div[id=Summary-Field-Index]')).to have_content message_sucess
+
 end

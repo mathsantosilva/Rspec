@@ -7,11 +7,11 @@ class Cadastros
     include Capybara::DSL
     include RSpec::Matchers
 
-    complements = Complements.new
-    common = Common.new
+    @complements = Complements.new
+    @common = Common.new
 
-    complements.varcommon
-    complements.varcadastro
+    @complements.varcommon
+    @complements.varcadastro
 
 
     #Alterando empresas filiais
@@ -28,12 +28,12 @@ class Cadastros
         fill_in 'Filial_Pais', with: $pais_aleatorio
         fill_in 'Filial_URL', with: 'http://filial.com.br'
         fill_in 'Filial_Email', with: $email_aleatorio
-        select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+        select('UTC -3', from: 'Filial_FusoHorario_Id').select_option
         find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
-        fill_in 'Filial.InicioHorarioVerao', with: '10062021'
-        fill_in 'Filial_FimHorarioVerao', with: '11092021'
+        # fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+        # fill_in 'Filial_FimHorarioVerao', with: '11092021'
         fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
-        fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+        fill_in 'Filial_DataLimiteTratamentoPonto', with: '10042021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria
 
     end
@@ -58,7 +58,7 @@ class Cadastros
         find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
         fill_in 'Filial.InicioHorarioVerao', with: '10062021'
         fill_in 'Filial_FimHorarioVerao', with: '11092021'
-        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '11032021'
         fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
         fill_in 'ConnectChave_ChaveConnect', with: $chave_aleatoria
 
@@ -92,21 +92,17 @@ class Cadastros
         drop.click
         sleep 2
 
-        expect(page.assert_selector('input.input-validation-error', count: 2))
+        expect(page.assert_selector('input.input-validation-error', count: 4))
 
         expect(page).to have_content 'Por favor adicione um código'
+        expect(page).to have_content 'Por favor introduza um telefone'
+        expect(page).to have_content 'Por favor introduza um CNPJ/CPF'
         expect(page).to have_content 'Email inválido'
 
         fill_in 'Filial_Codigo', with: $codigo_aleatorio
-        fill_in 'Filial_Email', with: $email_aleatorio
-
-        drop = find("input[type=submit][value='Salvar']", match: :first)
-        drop.click
-
-        expect(find('div[class=field-validation-error]')).to have_content 'CNPJ/CPF inválido'
-
-
+        fill_in 'Filial_Telefone', with: '999999999'
         fill_in 'Filial_CnpjCpf', with: $cnpj
+        fill_in 'Filial_Email', with: $email_aleatorio
 
         drop = find("input[type=submit][value='Salvar']", match: :first)
         drop.click
