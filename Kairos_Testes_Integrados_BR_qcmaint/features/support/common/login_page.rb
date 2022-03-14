@@ -15,11 +15,10 @@ class Login
         fill_in 'LogOnModel_UserName', with: $user_br
         fill_in 'LogOnModel_Password', with: $senha
         find('button[id="btnFormLogin"]').click 
-        # find('input[id="btnFormLogin"]').click
     end
 
     #Realizando o login mx
-    def logon_mx()
+    def logon_es()
         fill_in 'LogOnModel_UserName', with: $user_es
         fill_in 'LogOnModel_Password', with: $senha
         find('button[id="btnFormLogin"]').click

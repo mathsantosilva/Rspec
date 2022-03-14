@@ -6,6 +6,7 @@ class Common
 
     #executando a navegacao das paginas
     def nav_def(text, value)
+        sleep 5
         selecionar = find('div[id="toggleUserDefinitions"]')
         selecionar.hover
         find('div[class="pointer DropDownHeaderElement"]', text: text).click

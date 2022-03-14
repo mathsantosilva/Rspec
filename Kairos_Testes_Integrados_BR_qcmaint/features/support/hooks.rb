@@ -10,9 +10,9 @@ require 'common/campos_obrigatorios'
 Before do
 
   $user_br = 'automacao@dimep.com.br'
-  $user_mx = 'teste75624@dimep.com.mx'
-  $user_pt = 'teste75624@dimep.com.pt'
-  $user_en = 'teste75624@dimep.com.en'
+  $user_es = 'automacao@dimep.com.es'
+  $user_pt = 'automacao@dimep.com.pt'
+  $user_en = 'automacao@dimep.com.en'
   $senha = '1'
   page.current_window.maximize
   @page = 'https://www.dimepkairos.com.br/'
@@ -21,7 +21,7 @@ Before do
 
 
   # Instanciando as Classes 
-  
+  # @resources = Resources.new
   @login = Login.new
   @common = Common.new
   @complements = Complements.new
