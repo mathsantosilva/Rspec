@@ -2,7 +2,7 @@ Dado('que acesso a tela de empresa PTbr') do
     # Realiza login
     @login.logon_br
     # Acessando a empresa pela navegacao de telas
-    @common.nav('Empresa', 'div[id="MenuEmpresas"]')
+    @common.nav_def('Empresa', 'div[id="MenuEmpresas"]')
 end
   
   Quando('acesso a criação de empresa PTbr') do

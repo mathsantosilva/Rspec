@@ -146,4 +146,27 @@ class Cadastros
 
     #salvar com quantidade a mais do permitido e depois verificar se o que foi salvo foi a quantidade certa EX: permitw 100 coloquei pra digirar 102 e ver ser o que foi salvo foi com 100
 
+    
+    def cadas_obras(max, cod)
+        num = 0
+        while num < max.to_i do
+            find('i[class="fa fa-plus"]').click
+            fill_in 'Codigo', with: $codigo_aleatorio + cod
+            fill_in 'Descricao', with: "Obra" + " " + cod.to_s
+            fill_in 'Observacoes', with: $text_aleatorio
+            find('label[for="SolicitaAprovacaoHoras"]', visible: false).click
+            find('label[for="SomenteGestoresVisualiza"]', visible: false).click
+            find('input[type="submit"]').click
+            cod = cod +1
+            num = num +1
+        end
+    end
+
+    def looping_obras
+        print("Quantas vezes deseja repetir o looping: ")
+        max = $stdin.gets.strip
+        print("Iniciar o codigo em qual numero: ")
+        cod = $stdin.gets.strip
+        cadas_obras(max, cod.to_i)
+    end
 end

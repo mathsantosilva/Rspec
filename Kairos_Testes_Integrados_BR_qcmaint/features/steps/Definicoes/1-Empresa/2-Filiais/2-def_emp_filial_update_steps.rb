@@ -6,7 +6,7 @@ Dado('Acesso a tela de filiais e clico para alterar') do
   sleep 1
   
   #Acessando o cadastro da empresa filial pela navegação de telas
-  @common.nav('Empresa','div[id="MenuFiliais"')
+  @common.nav_def('Empresa','div[id="MenuFiliais"')
 
   #Removendo o chat
   @common.remove_chat()
