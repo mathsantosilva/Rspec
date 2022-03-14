@@ -8,7 +8,7 @@ end
 Quando 'Acesso a tela de filiais e clico em nova filial' do
 
     #Acessando o cadastro da empresa filial pela navegação de telas
-    @common.nav('Empresa','div[id="MenuFiliais"')
+    @common.nav_def('Empresa','div[id="MenuFiliais"')
 
     #Clico em nova filial
     find('label[class="pointer"]').click
@@ -34,7 +34,7 @@ end
 Quando 'Navego até a tela de filiais' do
 
     #Acessando o cadastro da empresa filial pela navegação de telas
-    @common.nav('Empresa','div[id="MenuFiliais"')
+    @common.nav_def('Empresa','div[id="MenuFiliais"')
 
 end
 
@@ -57,7 +57,7 @@ end
 Quando 'Vou até a tela de filiais' do
 
     #Acessando o cadastro da empresa filial pela navegação de telas
-    @common.nav('Empresa','div[id="MenuFiliais"')
+    @common.nav_def('Empresa','div[id="MenuFiliais"')
 
 end
 

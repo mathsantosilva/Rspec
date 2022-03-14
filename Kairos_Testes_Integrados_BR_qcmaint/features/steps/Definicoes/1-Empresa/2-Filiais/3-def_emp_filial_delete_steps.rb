@@ -6,7 +6,7 @@ Dado('Acesso a tela de filiais para deletar') do
   sleep 1
   
   # Acessando a empresa filial pela navegação de telas
-  @common.nav('Empresa','div[id="MenuFiliais"')
+  @common.nav_def('Empresa','div[id="MenuFiliais"')
 
   #removendo o chat
   @common.remove_chat

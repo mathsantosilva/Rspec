@@ -4,6 +4,8 @@ require 'selenium-webdriver'
 require 'faker'
 require 'cpf_cnpj'
 require 'webdrivers'
+require 'common/cadastros_empresas'
+require 'common/campos_obrigatorios'
 
 Before do
 

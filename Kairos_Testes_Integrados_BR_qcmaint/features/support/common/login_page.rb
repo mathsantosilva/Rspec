@@ -12,7 +12,7 @@ class Login
 
     #Realizando o login BR
     def logon_br()
-        fill_in 'LogOnModel_UserName', with: $user_ptbr
+        fill_in 'LogOnModel_UserName', with: $user_br
         fill_in 'LogOnModel_Password', with: $senha
         find('button[id="btnFormLogin"]').click 
         # find('input[id="btnFormLogin"]').click
@@ -27,7 +27,7 @@ class Login
 
     #Realizando o login pt
     def logon_pt()
-        fill_in 'LogOnModel_UserName', with: $user_ptpt
+        fill_in 'LogOnModel_UserName', with: $user_pt
         fill_in 'LogOnModel_Password', with: $senha
         find('button[id="btnFormLogin"]').click
     end
