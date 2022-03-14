@@ -4,7 +4,7 @@ Dado ('Acesso a tela de Filiais') do
   @login.logon_br
   
   #Acessando o cadastro da empresa filial pela navegação de telas
-  @common.nav('Empresa','div[id="MenuFiliais"')
+  @common.nav_def('Empresa','div[id="MenuFiliais"')
 
 end
 

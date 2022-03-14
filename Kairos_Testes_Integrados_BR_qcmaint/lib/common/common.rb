@@ -5,11 +5,18 @@ class Common
     include RSpec::Matchers
 
     #executando a navegacao das paginas
-    def nav(text, value)
+    def nav_def(text, value)
         selecionar = find('div[id="toggleUserDefinitions"]')
         selecionar.hover
         find('div[class="pointer DropDownHeaderElement"]', text: text).click
         find(value).click
+    end
+
+    def nav_mod(text)
+        sleep 5
+        selecionar = find('span[id="toogleModulos"]')
+        selecionar.hover
+        find('div[class="pointer DropDownHeaderElement"]', text: text).click
     end
 
     #acessando botao dentro de um table
@@ -40,6 +47,15 @@ class Common
     def botaosalvar 
         drop = find("input[type=button][value='Salvar']", match: :first)
         drop.click
+    end
+
+    def repeteco(max)
+        num = 0
+        while num < max.to_i do
+            text = CPF.generate
+            num = num + 1
+            print("\n" + text)
+        end
     end
 
 end

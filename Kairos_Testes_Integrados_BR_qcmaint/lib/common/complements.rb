@@ -21,5 +21,6 @@ class Complements
     $nome_empresa_aleatoria = Faker::Company.name
     $chave_aleatoria = Faker::Crypto.md5
     $url_aleatoria = Faker::Internet.url
+    $text_aleatorio = Faker::Lorem.sentence
   end
 end
