@@ -20,20 +20,11 @@ class Common
     end
 
     #acessando botao dentro de um table
-<<<<<<< HEAD
     def select_button(elemento, button)
         @buscar = find(elemento)
         @buscar.hover
         find(button).click
   
-=======
-    def select_button(elemento, caminho, value)
-        within(elemento) do
-            selecionar = find(caminho)
-            selecionar.hover
-            find(value).click
-        end
->>>>>>> e6c3adda4436a3994c9215e7ffd617b5ac9c3496
     end
 
     #Clicando no botao para confirmar a remoção da filial
