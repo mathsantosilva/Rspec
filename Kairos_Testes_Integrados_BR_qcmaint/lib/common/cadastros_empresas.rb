@@ -141,10 +141,125 @@ class Cadastros
 
         expect(find('div[class=validation-summary-ok]')).to have_content 'A Filial foi criada com sucesso'
 
+    end
+
+    # def cadas_emp_cod_fixo()
+
+    #     fill_in 'Filial_Codigo', with: '1533'
+    #     fill_in 'Filial_Telefone', with: '999999999'
+    #     fill_in 'Filial_Descricao', with: 'Empresa com codigo igual' + ' ' + $time.to_s
+    #     fill_in 'Filial_CnpjCpf', with: $cnpj
+    #     fill_in 'Filial_Endereco', with: $endereco_aleatorio
+    #     fill_in 'Filial_Cidade', with: $cidade_aleatoria
+    #     fill_in 'Filial_Bairro', with: 'Vila Borges'
+    #     fill_in 'Filial_UF', with: 'SP'
+    #     fill_in 'Filial_Pais', with: $pais_aleatorio
+    #     fill_in 'Filial_URL', with: 'http://filial.com.br'
+    #     fill_in 'Filial_Email', with: $email_aleatorio
+    #     select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+    #     find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+    #     fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+    #     fill_in 'Filial_FimHorarioVerao', with: '11092021'
+    #     fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+    #     fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+    #     fill_in 'ConnectChave_ChaveConnect', with: 'jkl471<>¨&*!$'
+
+    #     drop = find("input[type=submit][value='Salvar']", match: :first)
+    #     drop.click
+    #     sleep 2
+
+    #     expect(find('div[class=validation-summary-ok]')).to have_content 'A Filial foi criada com sucesso'
+
+    # end
+
+
+    def cadas_emp_cod_repetido()
+         
+        fill_in 'Filial_Codigo', with: '1533'
+        fill_in 'Filial_Telefone', with: '999999999'
+        fill_in 'Filial_Descricao', with: 'Empresa com codigo igual' + ' ' + $time.to_s
+        fill_in 'Filial_CnpjCpf', with: $cnpj
+        fill_in 'Filial_Endereco', with: $endereco_aleatorio
+        fill_in 'Filial_Cidade', with: $cidade_aleatoria
+        fill_in 'Filial_Bairro', with: 'Vila Borges'
+        fill_in 'Filial_UF', with: 'SP'
+        fill_in 'Filial_Pais', with: $pais_aleatorio
+        fill_in 'Filial_URL', with: 'http://filial.com.br'
+        fill_in 'Filial_Email', with: $email_aleatorio
+        select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+        find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+        fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+        fill_in 'Filial_FimHorarioVerao', with: '11092021'
+        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+        fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+        fill_in 'ConnectChave_ChaveConnect', with: 'jkl471<>¨&*!$'
+
+        drop = find("input[type=submit][value='Salvar']", match: :first)
+        drop.click
+        sleep 2
+
+        expect(find('div[class=field-validation-error]')).to have_content 'Já existe uma Filial com o código inserido'
 
     end
 
-    #salvar com quantidade a mais do permitido e depois verificar se o que foi salvo foi a quantidade certa EX: permitw 100 coloquei pra digirar 102 e ver ser o que foi salvo foi com 100
+    # def cadas_emp_cnpj_fixo()
+
+    #     fill_in 'Filial_Codigo', with: $codigo_aleatorio
+    #     fill_in 'Filial_Telefone', with: '999999999'
+    #     fill_in 'Filial_Descricao', with: 'Empresa com CNPJ igual' + ' ' + $time.to_s
+    #     fill_in 'Filial_CnpjCpf', with: '82596418000178'
+    #     fill_in 'Filial_Endereco', with: $endereco_aleatorio
+    #     fill_in 'Filial_Cidade', with: $cidade_aleatoria
+    #     fill_in 'Filial_Bairro', with: 'Vila Borges'
+    #     fill_in 'Filial_UF', with: 'SP'
+    #     fill_in 'Filial_Pais', with: $pais_aleatorio
+    #     fill_in 'Filial_URL', with: 'http://filial.com.br'
+    #     fill_in 'Filial_Email', with: $email_aleatorio
+    #     select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+    #     find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+    #     fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+    #     fill_in 'Filial_FimHorarioVerao', with: '11092021'
+    #     fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+    #     fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+    #     fill_in 'ConnectChave_ChaveConnect', with: 'jkl471<>¨&*!$'
+   
+    #     drop = find("input[type=submit][value='Salvar']", match: :first)
+    #     drop.click
+    #     sleep 2
+   
+    #     expect(find('div[class=validation-summary-ok]')).to have_content 'A Filial foi criada com sucesso'
+
+    # end
+
+
+    def cadas_emp_cnpj_repetido()
+
+        fill_in 'Filial_Codigo', with: $codigo_aleatorio
+        fill_in 'Filial_Telefone', with: '999999999'
+        fill_in 'Filial_Descricao', with: 'Empresa com CNPJ igual' + ' ' + $time.to_s
+        fill_in 'Filial_CnpjCpf', with: '82596418000178'
+        fill_in 'Filial_Endereco', with: $endereco_aleatorio
+        fill_in 'Filial_Cidade', with: $cidade_aleatoria
+        fill_in 'Filial_Bairro', with: 'Vila Borges'
+        fill_in 'Filial_UF', with: 'SP'
+        fill_in 'Filial_Pais', with: $pais_aleatorio
+        fill_in 'Filial_URL', with: 'http://filial.com.br'
+        fill_in 'Filial_Email', with: $email_aleatorio
+        select('UTC -10', from: 'Filial_FusoHorario_Id').select_option
+        find('label[for="checkHabilitaHorarioVerao"]', visible: false).set(true)
+        fill_in 'Filial.InicioHorarioVerao', with: '10062021'
+        fill_in 'Filial_FimHorarioVerao', with: '11092021'
+        fill_in 'Filial_DataPrevisaoProximoFechamento', with: '10032021'
+        fill_in 'Filial_DataLimiteTratamentoPonto', with: '11042021'
+        fill_in 'ConnectChave_ChaveConnect', with: 'jkl471<>¨&*!$'
+   
+        drop = find("input[type=submit][value='Salvar']", match: :first)
+        drop.click
+        sleep 2
+   
+        expect(find('div[class=field-validation-error]')).to have_content 'Já existe uma Empresa com o CNPJ/CPF inserido'
+
+    end
 
     
     def cadas_obras(max, cod)
