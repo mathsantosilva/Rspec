@@ -1,6 +1,6 @@
 Dado 'Logo no sistema' do
 
-    #Acessando a empresa filial pela navegação de telas
+    #Faço o login no sistema
     @login.logon_br
 
 end

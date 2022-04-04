@@ -1,9 +1,11 @@
-Dado ('Acesso a tela de Filiais para verficar os resources') do
+Dado 'Logo para verficar os resources BR' do
     
-  #Logando
+  #Logando usuario BR
   @login.logon_br
 
-  sleep 1
+end
+
+Quando 'Navego ate a tela de filiais para verificar os resources BR' do
   
   #Acessando o cadastro da empresa filial pela navegação de telas
   @common.nav_def('Empresa','div[id="MenuFiliais"')
@@ -11,16 +13,17 @@ Dado ('Acesso a tela de Filiais para verficar os resources') do
 end
 
 
-Quando ('Acesso o cadastro') do
+Quando 'Acesso o cadastro das filiais BR' do
 
   #acessar a criação de filiais
   find('label[class="pointer"]').click
 
 end
         
-Então ('Verifico os resources') do
+Então 'Verifico os resources BR' do
     
   expect(page).to have_content 'Código:'
+  expect(page).to have_content 'CEI/CNO/CAEPF:'
   expect(page).to have_content 'Telefone:'
   expect(page).to have_content 'Razão social:'
   expect(page).to have_content 'CNPJ/CPF:'
@@ -41,46 +44,50 @@ Então ('Verifico os resources') do
 
 end
 
-# describe 'Validando Resource em Inglês', :resource_filial_en do
-#     before(:each) do
-#       visit '/'
-  
-#       fill_in 'LogOnModel_UserName', with: $user_en
-#       fill_in 'LogOnModel_Password', with: $senha
-#       click_button 'Entrar'
-      
-#       # Acessando o cadastro da empresa filial pela navegação de telas
-#       selecionar = find('div[id="toggleUserDefinitions"]')
-#       selecionar.hover
-#       sleep 3
-#       find('div[class="pointer DropDownHeaderElement"]', text: 'Empresa').click
-#       find('div[id="MenuFiliais"]').click
 
-#     end
-  
-#     it 'No Create', :resource_criacao_filial_en do
-#       #acessar a criação de filiais
-#       find('label[class="pointer"]').click
-      
-#       expect(page).to have_content 'Code:'
-#       expect(page).to have_content 'telephone:'
-#       expect(page).to have_content 'Company name:'
-#       expect(page).to have_content 'CNPJ/CPF:'
-#       expect(page).to have_content 'Address:'
-#       expect(page).to have_content 'Neighborhood:'
-#       expect(page).to have_content 'City:'
-#       expect(page).to have_content 'UF:'
-#       expect(page).to have_content 'Country:'
-#       expect(page).to have_content 'URL:'
-#       expect(page).to have_content 'E-mail:'
-#       expect(page).to have_content 'DST:'
-#       expect(page).to have_content 'Home DST:'
-#       expect(page).to have_content 'End Daylight Saving Time:'
-#       expect(page).to have_content 'Next Closing Forecast Date:'
-#       expect(page).to have_content 'Deadline for Point Treatment:' 
-#       expect(page).to have_content 'Key of Kairos Connect :'
-#       expect(page).to have_content 'Location:'
-  
-#     end  
+Dado 'Logo para verficar os resources EN' do
+    
+  #Logando usuario EN
+  @login.logon_en
 
-# end
+end
+
+
+Quando 'Navego ate a tela de filiais para verificar os resources EN' do
+  
+  #Acessando o cadastro da empresa filial pela navegação de telas
+  @common.nav_def('Company','div[id="MenuFiliais"')
+
+end
+
+
+Quando 'Acesso o cadastro das filiais EN' do
+
+  #acessar a criação de filiais
+  find('label[class="pointer"]').click
+
+end
+        
+Então 'Verifico os resources EN' do
+    
+  expect(page).to have_content 'Code:'
+  expect(page).to have_content 'CEI/CNO/CAEPF:'
+  expect(page).to have_content 'telephone:'
+  expect(page).to have_content 'Company name:'
+  expect(page).to have_content 'CNPJ/CPF:'
+  expect(page).to have_content 'Address:'
+  expect(page).to have_content 'Neighborhood:'
+  expect(page).to have_content 'City:'
+  expect(page).to have_content 'UF:'
+  expect(page).to have_content 'Country:'
+  expect(page).to have_content 'URL:'
+  expect(page).to have_content 'E-mail:'
+  expect(page).to have_content 'Time zone:'
+  expect(page).to have_content 'DST:'
+  expect(page).to have_content 'Home DST:'
+  expect(page).to have_content 'End Daylight Saving Time:'
+  expect(page).to have_content 'Next Closing Forecast Date:'
+  expect(page).to have_content 'Deadline for Point Treatment:' 
+  expect(page).to have_content 'Key of Kairos Connect :'
+
+end
