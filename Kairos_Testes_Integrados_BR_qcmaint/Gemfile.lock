@@ -69,7 +69,7 @@ GEM
       mime-types (>= 3.3, < 4)
       oj (>= 3.10, < 4)
       require_all (>= 2, < 4)
-      uuid (>= 2.3, < 3)
+      uuid
     appium_lib (12.0.0)
       appium_lib_core (~> 5.0.0)
       nokogiri (~> 1.8, >= 1.8.1)

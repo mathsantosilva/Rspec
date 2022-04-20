@@ -6,6 +6,7 @@ require 'cpf_cnpj'
 require 'webdrivers'
 require 'common/cadastros_empresas'
 require 'common/campos_obrigatorios'
+require 'common/resources'
 
 Before do
 
@@ -21,7 +22,7 @@ Before do
 
 
   # Instanciando as Classes 
-  # @resources = Resources.new
+  @resources = Resources.new
   @login = Login.new
   @common = Common.new
   @complements = Complements.new

@@ -36,8 +36,7 @@ Quando('altero os dados da empresa com cnpj') do
 end
 
 Quando('for salvar o cadastro com cnpj') do
-    drop = find("input[type=button][value='Salvar']", match: :first)
-    drop.click
+    @common.botaosalvar
 end
 
 Então('ira demonstrar a mensagem {string}') do |message_success|
@@ -82,8 +81,8 @@ Quando('altero os dados da empresa com cpf') do
 end
 
 Quando('for salvar o cadastro com cpf') do
-    drop = find("input[type=button][value='Salvar']", match: :first)
-    drop.click
+    @common.botaosalvar
+
 end
 
 Então('ira informar a mensagem {string}') do |message_success|

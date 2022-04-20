@@ -18,7 +18,7 @@ FileUtils.rm_f(Dir.glob("logs/*.png"))
 
 Capybara.configure do |config|
     config.default_driver = :selenium_chrome
-    config.default_max_wait_time = 3
+    config.default_max_wait_time = 20
     #config.default_driver = :selenium_chrome_headless #roda com o nageador em background
 
 end
